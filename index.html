@@ -1,69 +1,284 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Praveen Kumar Basuvaraj – Homepage</title>
-  <style>
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.6;
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 0 20px;
-      color: #333;
-      background: #f9f9f9;
-    }
-    h1 {
-      color: #1a3c6d;
-      border-bottom: 2px solid #ddd;
-      padding-bottom: 10px;
-    }
-    h2 {
-      color: #444;
-    }
-    p {
-      margin: 12px 0;
-    }
-    a {
-      color: #0066cc;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    .note {
-      color: #555;
-      font-style: italic;
-    }
-    .address {
-      margin-top: 20px;
-      font-size: 1.05em;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage | Praveen Basuvaraj</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            margin: 0;
+        }
+        #menu {
+            width: 280px;
+            background-color: #034987;
+            color: #fff;
+            padding: 20px;
+            height: 100vh;
+            font-size: 18px;
+            overflow-y: auto;
+        }
+        #content {
+            flex: 1;
+            padding: 20px;
+            background-color: #fff;
+        }
+        #content h1, #content h2, #content h3 {
+            color: #034987;
+        }
+        address {
+            display: block !important;
+            color: #000 !important;
+        }
+        a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .science-logos {
+            display: flex;
+            align-items: center;
+        }
+        .logo {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
+        .footer {
+            background-color: #034987;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            width: 225px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th, td {
+            text-align: left;
+        }
+        #research-experience-table, #education-table, #honors-awards-table {
+            width: 70%;
+        }
+        #grants-table {
+            width: 80%;
+        }
+        #committee-table {
+            width: 50%;
+        }
+        .pub-link {
+            color: blue;
+            text-decoration: underline;
+        }
+        .note {
+            font-style: italic;
+            color: #555;
+        }
+    </style>
 </head>
 <body>
+    <div id="menu">
+        <img src="images/profile_picture.jpg" alt="Praveen Basuvaraj" style="max-width: 100%; height: auto; margin-bottom: 20px; border-radius: 50%;">
+        <ul style="list-style: none; padding: 0;">
+            <li><a href="javascript:void(0)" onclick="loadHome()">Home</a></li>
+            <li><a href="javascript:void(0)" onclick="loadCV()">Curriculum Vitae</a></li>
+            <li><a href="javascript:void(0)" onclick="loadPublications()">Publications</a></li>
+            <li><a href="javascript:void(0)" onclick="loadConferences()">Conferences</a></li>
+            <li><a href="javascript:void(0)" onclick="loadPhotos()">Photos</a></li>
+        </ul>
 
-  <h1>Praveen Kumar Basuvaraj</h1>
-  
-  <h2>Doctoral Student (graduated)</h2>
-  
-  <p>
-    <a href="https://physics.mff.cuni.cz/kfpp/kosmos/">Space Physics Group</a><br>
-    <a href="https://physics.mff.cuni.cz/kfpp/">Department of Surface and Plasma Science</a><br>
-    <a href="https://www.mff.cuni.cz/en">Faculty of Mathematics and Physics</a><br>
-    <a href="https://cuni.cz/UKEN-1.html">Charles University</a>
-  </p>
-  
-  <p class="address">
-    V Holešovičkách 2<br>
-    Prague 18000<br>
-    Czech Republic
-  </p>
-  
-  <p class="note">
-    (*moved since 07/2025 to Institute of Atmospheric Physics, CAS*)
-  </p>
+        <div class="science-logos">
+            <a href="https://orcid.org/0000-0002-1779-0331" target="_blank"><img src="logos/orcid-logo.png" alt="ORCID" class="logo"></a>
+            <a href="https://www.researcherid.com/rid/N-7838-2018" target="_blank"><img src="logos/researcherid-logo.png" alt="ResearcherID" class="logo"></a>
+            <a href="https://www.scopus.com/authid/detail.uri?authorId=57212026711" target="_blank"><img src="logos/scopus-logo.png" alt="Scopus" class="logo"></a>
+            <a href="https://github.com/pkbasuvaraj" target="_blank"><img src="logos/github-logo.png" alt="GitHub" class="logo"></a>
+            <a href="https://scholar.google.co.in/citations?user=ZY4HKMoAAAAJ&hl=en" target="_blank"><img src="logos/google-scholar-logo.jpg" alt="Google Scholar" class="logo"></a>
+            <a href="https://www.semanticscholar.org/author/1388401732" target="_blank"><img src="logos/semantic-scholar-logo.png" alt="Semantic Scholar" class="logo"></a>
+        </div>
+
+        <br>
+        <div id="last-updated" style="font-size: 14px; color: #ddd;">
+            Last updated on February 23, 2026
+        </div>
+
+        <footer class="footer">
+            <p>&copy; 2026 Praveen Basuvaraj. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <div id="content">
+        <div id="homepage">
+            <h1>Praveen Kumar Basuvaraj, Ph.D.</h1>
+            <h3>Post-Doctoral Researcher</h3>
+            <p>Department of Space Physics</p>
+            <p><a href="https://www.ufa.cas.cz/en/homepage-en/" target="_blank" style="color: #034987;">Institute of Atmospheric Physics, Czech Academy of Sciences (CAS)</a></p>
+            <p>Prague, Czech Republic</p>
+
+            <h4>Previous Affiliation (PhD)</h4>
+            <p>
+                Space Physics Group<br>
+                Department of Surface and Plasma Science<br>
+                Faculty of Mathematics and Physics<br>
+                Charles University, Prague
+            </p>
+
+            <p><img src="images/png-email.png" width="300" alt="Email" style="margin: 10px 0;"></p>
+
+            <p class="note">PhD completed June 2025 at Charles University. Moved to CAS in July 2025.</p>
+
+            <h4>Research Interests</h4>
+            <ul>
+                <li>Martian ionosphere and plasma processes</li>
+                <li>Plasma depletion events (PDEs)</li>
+                <li>MAVEN and Mars Express data analysis</li>
+                <li>Solar wind – planetary atmosphere interactions</li>
+            </ul>
+        </div>
+
+        <div id="cv" style="display: none;">
+            <h1>Curriculum Vitae</h1>
+
+            <h3 style="color: #034987;">Research Experience</h3>
+            <table id="research-experience-table">
+                <tr><td>07/2025 – present</td><td>Post-Doctoral Researcher</td><td>Institute of Atmospheric Physics, CAS, Prague</td></tr>
+                <tr><td>04/2025 – 06/2025</td><td>Researcher</td><td>Institute of Atmospheric Physics, CAS, Prague</td></tr>
+                <tr><td>11/2021 – 06/2025</td><td>Doctoral Researcher</td><td>Charles University, Prague</td></tr>
+                <tr><td>04/2017 – 03/2021</td><td>Research Fellow</td><td>Bangalore University, Bengaluru, India</td></tr>
+            </table>
+
+            <h3 style="color: #034987;">Education</h3>
+            <table id="education-table">
+                <tr><td>10/2021 – 06/2025</td><td>Ph.D. in Plasma Physics</td><td>Charles University, Prague</td></tr>
+                <tr><td>09/2014 – 07/2016</td><td>M.Sc. in Physics</td><td>Bangalore University, India</td></tr>
+                <tr><td>07/2011 – 07/2014</td><td>B.Sc. (Physics, Math, Computer Science)</td><td>Bangalore University, India</td></tr>
+            </table>
+
+            <h3 style="color: #034987;">Grant Projects</h3>
+            <table id="grants-table">
+                <tr><td>04/2025 – 12/2029</td><td>Radio Emissions from Jupiter (Team Member)</td><td>Czech Academy of Sciences</td></tr>
+                <tr><td>01/2023 – 12/2025</td><td>Understanding Martian ionospheric depletions (Principal Investigator)</td><td>GAUK 256323</td></tr>
+                <tr><td>04/2017 – 03/2021</td><td>Observation and Modelling of Mars Atmosphere (Research Fellow)</td><td>ISRO, India</td></tr>
+            </table>
+
+            <h3 style="color: #034987;">Committee Memberships & Service</h3>
+            <table id="committee-table">
+                <tr><td>2024 – present</td><td>EGU PS Division</td><td>ECS Co-Representative</td></tr>
+                <tr><td>2023 – present</td><td>AGU</td><td>Student Member</td></tr>
+                <tr><td>2022 – present</td><td>EGU</td><td>Student Member</td></tr>
+                <tr><td>2018 – present</td><td>COSPAR</td><td>Associate</td></tr>
+            </table>
+
+            <h3 style="color: #034987;">Professional Service</h3>
+            <p>Reviewer for Geophysical Research Letters (GRL), JGR: Space Physics, Advances in Space Research (ASR).</p>
+
+            <h3 style="color: #034987;">Honors & Awards</h3>
+            <table id="honors-awards-table">
+                <tr><td>04/2017 – 03/2021</td><td>Research Fellowship</td><td>ISRO, India</td></tr>
+                <tr><td>01/2017</td><td>Gold Medalist (M.Sc. Physics)</td><td>Bangalore University</td></tr>
+                <tr><td>06/2016 – present</td><td>NET Lectureship in Physical Sciences</td><td>CSIR, India</td></tr>
+            </table>
+        </div>
+
+        <div id="publications" style="display: none;">
+            <h1>Publications</h1>
+
+            <h2 style="color: #034987;">Peer-Reviewed Journal Articles</h2>
+            <ol reversed>
+                <li><strong>Basuvaraj, P.</strong>, Němec, F., Fowler, C. M., Regoli, L. H., Němeček, Z., Šafránková, J., Witasse, O., Wilson, C. F. (2025). Spatial and temporal extent of plasma depletion events in the ionosphere of Mars. <em>Journal of Geophysical Research: Planets</em>, 130(10), e2025JE008934. <a href="https://doi.org/10.1029/2025JE008934" class="pub-link" target="_blank">DOI:10.1029/2025JE008934</a></li>
+                <li><strong>Basuvaraj, P.</strong>, Nemec, F., Fowler, C. M., Regoli, L. H., Nemecek, Z., Safrankova, J. (2024). On the Formation Mechanism of Martian Dayside Ionospheric Plasma Depletion Events. <em>Journal of Geophysical Research: Planets</em>, 129(6), e2023JE008227. <a href="https://doi.org/10.1029/2023JE008227" class="pub-link" target="_blank">DOI:10.1029/2023JE008227</a></li>
+                <li><strong>Basuvaraj, P.</strong>, Nemec, F., Nemecek, Z., Safrankova, J. (2022). Ionospheric Plasma Depletions at Mars Observed by the MAVEN Spacecraft. <em>Journal of Geophysical Research: Planets</em>, 127(11), e2022JE007302. <a href="https://doi.org/10.1029/2022JE007302" class="pub-link" target="_blank">DOI:10.1029/2022JE007302</a></li>
+                <li>Nagaraja, K., <strong>Basuvaraj, P. K.</strong>, Chakravarty, S. C., Praveen Kumar, K. (2020). Study of Exospheric Neutral Composition of Mars observed from Indian Mars Orbiter Mission. <em>New Astronomy</em>, 77, 101349. <a href="https://doi.org/10.1016/j.newast.2019.101349" class="pub-link" target="_blank">DOI:10.1016/j.newast.2019.101349</a></li>
+                <li>Nagaraja, K., Chakravarty, S. C., <strong>Basuvaraj, P. K.</strong> (2019). Investigation of HZE particle fluxes as a space radiation hazard for future Mars missions. <em>Heliyon</em>, 5(12), e02972. <a href="https://doi.org/10.1016/j.heliyon.2019.e02972" class="pub-link" target="_blank">DOI:10.1016/j.heliyon.2019.e02972</a></li>
+                <li>Nagaraja, K., <strong>Basuvaraj, P. K.</strong>, Chakravarty, S. C. (2018). X-ray flares and coronal mass ejections (CMEs) during very quiet solar activity conditions of 2009. <em>Indian Journal of Pure and Applied Physics</em>, 56, 621-623. <a href="http://nopr.niscpr.res.in/handle/123456789/44854" class="pub-link" target="_blank">Link</a></li>
+            </ol>
+
+            <h2 style="color: #034987;">Doctoral Thesis</h2>
+            <ul>
+                <li><strong>Basuvaraj, P. K.</strong> (2025). Plasma Depletion Events in the Martian Ionosphere. Doctoral Thesis, Charles University, Prague. Supervisor: Prof. František Němec. <a href="https://dspace.cuni.cz/handle/20.500.11956/200710" class="pub-link" target="_blank">Full text</a></li>
+            </ul>
+
+            <h2 style="color: #034987;">Conference Proceedings, Preprints & Reports</h2>
+            <!-- Paste your original proceedings list here if needed; abbreviated for space -->
+            <p class="note">See full list on <a href="https://scholar.google.co.in/citations?user=ZY4HKMoAAAAJ&hl=en" target="_blank">Google Scholar</a> (citations tracked there).</p>
+        </div>
+
+        <div id="conferences" style="display: none;">
+            <h1>Conferences, Workshops, Seminars</h1>
+            <!-- Your full original conferences list here (2025 entries at top) -->
+            <h3>2025</h3>
+            <ol reversed start="35">
+                <li><strong>Basuvaraj, P.</strong> et al. Large-Scale Ionospheric Structures on Mars... M-MATISSE Community Workshop, London, May 19-23, 2025.</li>
+                <li><strong>Basuvaraj, P.</strong> et al. Characterizing Plasma Depletion Events on Mars... EGU General Assembly, Vienna, April 27-May 2, 2025.</li>
+                <!-- Add more from your original -->
+            </ol>
+            <!-- Continue with 2024, 2023, etc. as in your code -->
+        </div>
+
+        <div id="photos" style="display: none;">
+            <h1>Photos</h1>
+            <img src="photos/estec_esa1.jpg" alt="ESA/ESTEC" style="max-width: 40%; margin: 10px;">
+            <img src="photos/estec_esa2.jpg" alt="ESA/ESTEC Columbus Lab" style="max-width: 40%; margin: 10px;">
+            <!-- Add more photos as needed -->
+        </div>
+    </div>
+
+<script>
+function loadHome() {
+    document.getElementById('homepage').style.display = 'block';
+    document.getElementById('cv').style.display = 'none';
+    document.getElementById('publications').style.display = 'none';
+    document.getElementById('conferences').style.display = 'none';
+    document.getElementById('photos').style.display = 'none';
+}
+
+function loadCV() {
+    document.getElementById('homepage').style.display = 'none';
+    document.getElementById('cv').style.display = 'block';
+    document.getElementById('publications').style.display = 'none';
+    document.getElementById('conferences').style.display = 'none';
+    document.getElementById('photos').style.display = 'none';
+}
+
+function loadPublications() {
+    document.getElementById('homepage').style.display = 'none';
+    document.getElementById('cv').style.display = 'none';
+    document.getElementById('publications').style.display = 'block';
+    document.getElementById('conferences').style.display = 'none';
+    document.getElementById('photos').style.display = 'none';
+}
+
+function loadConferences() {
+    document.getElementById('homepage').style.display = 'none';
+    document.getElementById('cv').style.display = 'none';
+    document.getElementById('publications').style.display = 'none';
+    document.getElementById('conferences').style.display = 'block';
+    document.getElementById('photos').style.display = 'none';
+}
+
+function loadPhotos() {
+    document.getElementById('homepage').style.display = 'none';
+    document.getElementById('cv').style.display = 'none';
+    document.getElementById('publications').style.display = 'none';
+    document.getElementById('conferences').style.display = 'none';
+    document.getElementById('photos').style.display = 'block';
+}
+
+// Update date dynamically
+const currentDate = new Date();
+const options = { year: 'numeric', month: 'long', day: 'numeric' };
+document.getElementById('last-updated').innerHTML = 'Last updated: ' + currentDate.toLocaleDateString('en-US', options);
+</script>
 
 </body>
 </html>
