@@ -30,8 +30,8 @@ body {
   background: var(--bg);
   color: var(--ink);
   font-family: 'Nunito Sans', sans-serif;
-  font-size: 15px;
-  line-height: 1.72;
+  font-size: 17px;
+  line-height: 1.78;
   overflow-x: hidden;
 }
 
@@ -80,11 +80,11 @@ body {
   display: block; margin: 0 auto 12px;
 }
 .sb-name {
-  font-family: 'Lora', serif; font-size: 15px; font-weight: 600;
+  font-family: 'Lora', serif; font-size: 16.5px; font-weight: 600;
   text-align: center; color: var(--ink); line-height: 1.3; margin-bottom: 4px;
 }
 .sb-title {
-  font-family: 'JetBrains Mono', monospace; font-size: 9.5px;
+  font-family: 'JetBrains Mono', monospace; font-size: 10.5px;
   letter-spacing: 0.1em; text-transform: uppercase; color: var(--navy2);
   text-align: center; margin-bottom: 20px;
 }
@@ -94,8 +94,8 @@ body {
 .sb-nav { display: flex; flex-direction: column; gap: 2px; flex: 1; }
 .sb-link {
   display: flex; align-items: center; gap: 10px;
-  padding: 9px 12px; border-radius: 6px;
-  text-decoration: none; color: var(--ink2); font-size: 14px; font-weight: 500;
+  padding: 10px 12px; border-radius: 6px;
+  text-decoration: none; color: var(--ink2); font-size: 15.5px; font-weight: 500;
   transition: all 0.2s; position: relative;
 }
 .sb-link:hover { background: var(--bg); color: var(--navy); }
@@ -109,7 +109,7 @@ body {
 /* Sidebar bottom */
 .sb-bottom { margin-top: auto; }
 .sb-updated {
-  font-family: 'JetBrains Mono', monospace; font-size: 10px;
+  font-family: 'JetBrains Mono', monospace; font-size: 11.5px;
   color: var(--ink3); line-height: 1.6; padding: 12px 0;
   border-top: 1px solid var(--border); margin-top: 16px;
 }
@@ -117,7 +117,7 @@ body {
 
 .sb-social { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
 .sb-social a {
-  font-family: 'JetBrains Mono', monospace; font-size: 9px;
+  font-family: 'JetBrains Mono', monospace; font-size: 10.5px;
   letter-spacing: 0.05em; text-transform: uppercase;
   color: var(--ink3); text-decoration: none;
   padding: 4px 8px; border: 1px solid var(--border);
@@ -162,18 +162,18 @@ body {
 }
 .sec-heading { }
 .sec-kicker {
-  font-family: 'JetBrains Mono', monospace; font-size: 10px;
+  font-family: 'JetBrains Mono', monospace; font-size: 11.5px;
   letter-spacing: 0.2em; text-transform: uppercase; color: var(--navy);
   margin-bottom: 8px; display: flex; align-items: center; gap: 10px;
 }
 .sec-kicker::after { content: ''; display: inline-block; width: 32px; height: 1px; background: var(--navy); opacity: 0.35; }
 h2 {
-  font-family: 'Lora', serif; font-size: clamp(1.6rem, 2.5vw, 2.1rem);
+  font-family: 'Lora', serif; font-size: clamp(1.8rem, 2.8vw, 2.4rem);
   font-weight: 600; color: var(--ink); letter-spacing: -0.01em; line-height: 1.15;
 }
 h2 em { color: var(--navy); font-style: italic; font-weight: 400; }
 .sec-updated {
-  font-family: 'JetBrains Mono', monospace; font-size: 10px;
+  font-family: 'JetBrains Mono', monospace; font-size: 11.5px;
   color: var(--ink3); white-space: nowrap;
   background: var(--bg2); padding: 4px 10px; border-radius: 100px;
   border: 1px solid var(--border);
@@ -181,66 +181,88 @@ h2 em { color: var(--navy); font-style: italic; font-weight: 400; }
 .sec-updated::before { content: '↺ '; }
 
 /* ─── HERO / HOME ─── */
-#home { padding-top: 20px; }
+#home {
+  padding: 0;
+  position: relative;
+  background: #080c18;
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  border-bottom: none !important;
+}
+#space-canvas {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  pointer-events: none; z-index: 0;
+}
+.hero-inner {
+  position: relative; z-index: 2;
+  padding: 80px 48px;
+  max-width: var(--content-max);
+  margin: 0 auto; width: 100%;
+}
 .hero-photo {
-  width: 160px; height: 200px; object-fit: cover; object-position: top;
-  border-radius: 4px; display: block; margin-bottom: 28px;
-  box-shadow: 0 6px 24px rgba(26,53,96,0.15);
+  width: 170px; height: 215px; object-fit: cover; object-position: top;
+  border-radius: 4px; display: block; margin-bottom: 32px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+  border: 2px solid rgba(255,255,255,0.15);
 }
 .hero-name {
-  font-family: 'Lora', serif; font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 700; color: var(--ink); letter-spacing: -0.02em;
-  line-height: 1.1; margin-bottom: 8px;
+  font-family: 'Lora', serif; font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-weight: 700; color: #f0ece4; letter-spacing: -0.02em;
+  line-height: 1.08; margin-bottom: 10px;
 }
-.hero-name em { color: var(--navy); font-style: italic; font-weight: 500; }
+.hero-name em { color: #7eb8ff; font-style: italic; font-weight: 500; }
 .hero-role {
-  font-family: 'JetBrains Mono', monospace; font-size: 11px;
-  letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold);
-  margin-bottom: 24px;
+  font-family: 'JetBrains Mono', monospace; font-size: 12.5px;
+  letter-spacing: 0.15em; text-transform: uppercase; color: #e8c060;
+  margin-bottom: 28px;
 }
 .hero-affil {
-  font-size: 15px; color: var(--ink2); line-height: 1.85;
-  border-left: 3px solid var(--navy); padding-left: 18px;
+  font-size: 16.5px; color: rgba(240,236,228,0.85); line-height: 1.85;
+  border-left: 3px solid #4a8fe0; padding-left: 18px;
   margin-bottom: 20px;
 }
-.hero-affil strong { color: var(--ink); font-weight: 600; }
-.hero-affil a { color: var(--navy); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
-.hero-affil a:hover { border-bottom-color: var(--navy); }
+.hero-affil strong { color: #f0ece4; font-weight: 600; }
+.hero-affil a { color: #7eb8ff; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+.hero-affil a:hover { border-bottom-color: #7eb8ff; }
 .prev-box {
-  background: var(--bg2); border-radius: 6px; padding: 14px 18px;
-  font-size: 13.5px; color: var(--ink2); line-height: 1.7; margin-bottom: 28px;
-  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.07); border-radius: 6px; padding: 16px 20px;
+  font-size: 15.5px; color: rgba(240,236,228,0.75); line-height: 1.8; margin-bottom: 32px;
+  border: 1px solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(4px);
 }
 .prev-box .label {
-  font-family: 'JetBrains Mono', monospace; font-size: 9px;
-  letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink3);
-  display: block; margin-bottom: 5px;
+  font-family: 'JetBrains Mono', monospace; font-size: 10px;
+  letter-spacing: 0.18em; text-transform: uppercase; color: rgba(240,236,228,0.45);
+  display: block; margin-bottom: 6px;
 }
 
-.interest-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+.interest-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
 .chip {
-  font-size: 12.5px; padding: 5px 14px; border-radius: 100px;
-  background: var(--white); border: 1.5px solid var(--border);
-  color: var(--ink2); transition: all 0.2s; cursor: default;
+  font-size: 13.5px; padding: 6px 16px; border-radius: 100px;
+  background: rgba(255,255,255,0.08); border: 1.5px solid rgba(255,255,255,0.18);
+  color: rgba(240,236,228,0.85); transition: all 0.2s; cursor: default;
+  backdrop-filter: blur(4px);
 }
-.chip:hover { background: var(--navy); color: white; border-color: var(--navy); }
+.chip:hover { background: rgba(74,143,224,0.3); color: #d4eaff; border-color: rgba(126,184,255,0.5); }
 
 .social-grid { display: flex; flex-wrap: wrap; gap: 8px; }
 .soc-btn {
   display: inline-flex; align-items: center; gap: 7px;
-  font-family: 'JetBrains Mono', monospace; font-size: 10px;
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
   letter-spacing: 0.06em; text-transform: uppercase;
-  color: var(--ink2); text-decoration: none;
-  padding: 7px 14px; border: 1px solid var(--border);
-  border-radius: 4px; background: var(--white);
-  transition: all 0.2s;
+  color: rgba(240,236,228,0.75); text-decoration: none;
+  padding: 8px 16px; border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 4px; background: rgba(255,255,255,0.07);
+  transition: all 0.2s; backdrop-filter: blur(4px);
 }
-.soc-btn:hover { background: var(--navy); color: white; border-color: var(--navy); }
+.soc-btn:hover { background: rgba(74,143,224,0.25); color: #d4eaff; border-color: rgba(126,184,255,0.4); }
 
 /* ─── CV ─── */
 #cv { background: transparent; }
 h3.grp {
-  font-family: 'JetBrains Mono', monospace; font-size: 9.5px;
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
   letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink3);
   padding-bottom: 8px; border-bottom: 1px solid var(--border);
   margin: 36px 0 18px;
@@ -248,58 +270,53 @@ h3.grp {
 h3.grp:first-of-type { margin-top: 0; }
 
 .cv-row {
-  display: grid; grid-template-columns: 120px 1fr;
-  gap: 4px 20px; padding: 13px 0;
+  display: grid; grid-template-columns: 130px 1fr;
+  gap: 4px 20px; padding: 15px 0;
   border-bottom: 1px solid rgba(0,0,0,0.05);
 }
 .cv-row:last-child { border-bottom: none; }
 .cv-date {
-  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  font-family: 'JetBrains Mono', monospace; font-size: 12.5px;
   color: var(--navy); padding-top: 2px; line-height: 1.5;
 }
-.cv-role { font-weight: 600; font-size: 14.5px; color: var(--ink); margin-bottom: 2px; }
-.cv-org { font-size: 13px; color: var(--ink3); }
+.cv-role { font-weight: 600; font-size: 16px; color: var(--ink); margin-bottom: 2px; }
+.cv-org { font-size: 14.5px; color: var(--ink3); }
 
 /* ─── Publications ─── */
 #publications { }
 .pub-item {
-  padding: 22px 0; border-bottom: 1px solid var(--border);
+  padding: 24px 0; border-bottom: 1px solid var(--border);
   transition: background 0.2s; position: relative;
 }
 .pub-item:last-child { border-bottom: none; }
 .pub-num {
-  font-family: 'JetBrains Mono', monospace; font-size: 11px;
-  color: var(--ink3); float: left; margin-right: 14px; margin-top: 3px; min-width: 20px;
+  font-family: 'JetBrains Mono', monospace; font-size: 12.5px;
+  color: var(--ink3); float: left; margin-right: 16px; margin-top: 3px; min-width: 22px;
 }
 .pub-body { overflow: hidden; }
 .pub-title {
-  font-family: 'Lora', serif; font-size: 15.5px; font-weight: 600;
-  color: var(--ink); margin-bottom: 7px; line-height: 1.45;
+  font-family: 'Lora', serif; font-size: 17px; font-weight: 600;
+  color: var(--ink); margin-bottom: 8px; line-height: 1.45;
 }
-.pub-authors { font-size: 13px; color: var(--ink3); margin-bottom: 7px; line-height: 1.7; }
+.pub-authors { font-size: 14.5px; color: var(--ink3); margin-bottom: 8px; line-height: 1.75; }
 .pub-authors strong { color: var(--ink2); font-weight: 600; }
 .pub-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
-.pub-journal { font-size: 13px; color: var(--gold); font-style: italic; }
+.pub-journal { font-size: 14px; color: var(--gold); font-style: italic; }
 .pub-doi {
-  font-family: 'JetBrains Mono', monospace; font-size: 10px;
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
   color: var(--navy); text-decoration: none;
-  padding: 2px 9px; border: 1px solid rgba(26,53,96,0.3);
+  padding: 3px 10px; border: 1px solid rgba(26,53,96,0.3);
   border-radius: 3px; transition: all 0.2s;
 }
 .pub-doi:hover { background: var(--navy); color: white; }
-.pub-scholar {
-  font-family: 'JetBrains Mono', monospace; font-size: 10px;
-  color: var(--ink3); text-decoration: none;
-  padding: 2px 9px; border: 1px solid var(--border);
-  border-radius: 3px; transition: all 0.2s; display: inline-flex; align-items: center; gap: 5px;
-}
-.pub-scholar:hover { background: var(--bg2); color: var(--ink); }
 .cite-badge {
-  display: inline-flex; align-items: center; gap: 5px;
-  font-family: 'JetBrains Mono', monospace; font-size: 10px;
-  padding: 2px 9px; border-radius: 3px;
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  padding: 3px 10px; border-radius: 3px;
   background: #eef2f8; color: var(--navy); border: 1px solid #c8d5ea;
+  cursor: pointer; transition: all 0.2s; text-decoration: none;
 }
+.cite-badge:hover { background: #dde8f5; }
 .cite-num { font-weight: 500; }
 .cite-loading { opacity: 0.5; font-style: italic; }
 
@@ -324,17 +341,17 @@ h3.grp:first-of-type { margin-top: 0; }
   display: flex; align-items: center; gap: 16px; margin-bottom: 12px;
 }
 .conf-year-num {
-  font-family: 'Lora', serif; font-size: 26px; font-weight: 700;
+  font-family: 'Lora', serif; font-size: 30px; font-weight: 700;
   color: var(--ink); line-height: 1;
 }
 .conf-year-line { flex: 1; height: 1px; background: var(--border); }
 
-.conf-item { display: grid; grid-template-columns: 28px 1fr; gap: 4px 12px; padding: 11px 0; border-bottom: 1px solid rgba(0,0,0,0.05); }
+.conf-item { display: grid; grid-template-columns: 32px 1fr; gap: 4px 12px; padding: 13px 0; border-bottom: 1px solid rgba(0,0,0,0.05); }
 .conf-item:last-child { border-bottom: none; }
-.conf-n { font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--ink3); padding-top: 3px; }
-.conf-text { font-size: 13.5px; color: var(--ink2); line-height: 1.55; margin-bottom: 4px; }
+.conf-n { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--ink3); padding-top: 3px; }
+.conf-text { font-size: 15px; color: var(--ink2); line-height: 1.6; margin-bottom: 5px; }
 .conf-text strong { color: var(--ink); font-weight: 600; }
-.conf-venue { font-size: 12px; color: var(--ink3); }
+.conf-venue { font-size: 13.5px; color: var(--ink3); }
 .conf-venue em { color: var(--navy); font-style: italic; }
 
 /* ─── Photos ─── */
@@ -401,12 +418,13 @@ footer {
   .sidebar { transform: translateX(calc(-1 * var(--sidebar-w))); box-shadow: none; }
   .sidebar.visible { transform: translateX(0); box-shadow: 4px 0 24px rgba(0,0,0,0.15); }
   .main { margin-left: 0 !important; }
-  .content-inner { padding: 60px 20px 60px; }
+  .hero-inner { padding: 60px 20px 60px; }
+  .content-inner { padding: 48px 20px 60px; }
   .photo-grid { grid-template-columns: 1fr; }
   .cv-row { grid-template-columns: 1fr; gap: 2px; }
-  .cv-date { font-size: 10px; }
-  h2 { font-size: 1.6rem; }
-  .hero-name { font-size: 2rem; }
+  .cv-date { font-size: 11px; }
+  h2 { font-size: 1.7rem; }
+  .hero-name { font-size: 2.2rem; }
   .sec-top { flex-direction: column; align-items: flex-start; }
 }
 
@@ -434,7 +452,7 @@ footer {
   <div class="sidebar-inner">
     <img src="images/profile_picture.jpg" alt="Praveen" class="sb-profile-img" onerror="this.style.display='none'">
     <div class="sb-name">Praveen Kumar Basuvaraj</div>
-    <div class="sb-title">Post-Doctoral Researcher</div>
+    <div class="sb-title">Ph.D. · Post-Doctoral Researcher</div>
     <div class="sb-divider"></div>
 
     <nav class="sb-nav">
@@ -455,7 +473,7 @@ footer {
         <a href="https://www.researcherid.com/rid/N-7838-2018" target="_blank">WoS</a>
       </div>
       <div class="sb-updated">
-        <strong>Last Updated</strong>
+        <strong>Last updated</strong>
         26 February 2026
       </div>
     </div>
@@ -468,9 +486,11 @@ footer {
 
 <!-- ── HOME ── -->
 <section class="section" id="home">
+  <canvas id="space-canvas"></canvas>
+  <div class="hero-inner">
   <img src="images/profile_picture.jpg" alt="Praveen Kumar Basuvaraj" class="hero-photo" onerror="this.style.display='none'">
   <h1 class="hero-name">Praveen Kumar<br><em>Basuvaraj</em></h1>
-  <div class="hero-role">Ph.D. | Post-Doctoral Researcher</div>
+  <div class="hero-role">Ph.D. · Post-Doctoral Researcher</div>
 
   <div class="hero-affil">
     <strong>Department of Space Physics</strong><br>
@@ -478,11 +498,18 @@ footer {
     Prague, Czech Republic
   </div>
 
+  <div class="prev-box">
+    <span class="label">Previous Affiliation (PhD)</span>
+    Space Physics Group · Department of Surface and Plasma Science<br>
+    Faculty of Mathematics and Physics · <strong style="color:rgba(240,236,228,0.9)">Charles University, Prague</strong><br>
+    <em>PhD completed June 2025 · Moved to CAS in July 2025</em>
+  </div>
+
   <div class="interest-chips">
-    <span class="chip">Martian and Jovian Ionospheres</span>
+    <span class="chip">Martian Ionosphere</span>
+    <span class="chip">Plasma Depletion Events</span>
     <span class="chip">MAVEN</span>
     <span class="chip">Mars Express</span>
-    <span class="chip">Juno</span>
     <span class="chip">Solar Wind–Planetary Atmosphere Interactions</span>
   </div>
 
@@ -494,6 +521,7 @@ footer {
     <a href="https://www.semanticscholar.org/author/1388401732" class="soc-btn" target="_blank">📖 Semantic Scholar</a>
     <a href="https://www.researcherid.com/rid/N-7838-2018" class="soc-btn" target="_blank">🔗 ResearcherID</a>
   </div>
+  </div><!-- /hero-inner -->
 </section>
 
 <!-- ── CV ── -->
@@ -795,17 +823,246 @@ footer {
 </main>
 
 <script>
+/* ══════════════════════════════════════════
+   SPACE CANVAS — Mars + Jupiter + Stars
+══════════════════════════════════════════ */
+(function() {
+  const canvas = document.getElementById('space-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let W, H, stars = [], t = 0;
+
+  function resize() {
+    const section = document.getElementById('home');
+    W = canvas.width  = section.offsetWidth;
+    H = canvas.height = section.offsetHeight;
+    buildStars();
+  }
+
+  function buildStars() {
+    stars = Array.from({ length: 280 }, () => ({
+      x: Math.random() * W, y: Math.random() * H,
+      r: Math.random() * 1.4 + 0.2,
+      a: Math.random(), speed: Math.random() * 0.008 + 0.002,
+      twinkleOffset: Math.random() * Math.PI * 2
+    }));
+  }
+
+  /* ── Glow helper ── */
+  function glow(x, y, r, color, spread) {
+    const g = ctx.createRadialGradient(x, y, 0, x, y, r + spread);
+    g.addColorStop(0,   color);
+    g.addColorStop(0.5, color.replace('1)', '0.25)'));
+    g.addColorStop(1,   color.replace('1)', '0)'));
+    ctx.fillStyle = g;
+    ctx.beginPath(); ctx.arc(x, y, r + spread, 0, Math.PI * 2); ctx.fill();
+  }
+
+  /* ── Draw Mars ── */
+  function drawMars(cx, cy, r) {
+    // Atmosphere glow
+    glow(cx, cy, r, 'rgba(200,80,40,1)', r * 1.8);
+
+    // Base sphere
+    const baseG = ctx.createRadialGradient(cx - r*0.3, cy - r*0.3, r*0.05, cx, cy, r);
+    baseG.addColorStop(0,   '#e8856a');
+    baseG.addColorStop(0.4, '#c0502a');
+    baseG.addColorStop(0.75,'#8a2e10');
+    baseG.addColorStop(1,   '#3a1005');
+    ctx.fillStyle = baseG;
+    ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2); ctx.fill();
+
+    // Surface stripes / regions
+    ctx.save();
+    ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2); ctx.clip();
+    ctx.globalAlpha = 0.18;
+    ctx.fillStyle = '#d46040';
+    ctx.beginPath(); ctx.ellipse(cx - r*0.1, cy + r*0.15, r*0.9, r*0.18, 0.1, 0, Math.PI*2); ctx.fill();
+    ctx.fillStyle = '#7a2808';
+    ctx.beginPath(); ctx.ellipse(cx + r*0.1, cy - r*0.2, r*0.7, r*0.14, -0.15, 0, Math.PI*2); ctx.fill();
+    // Polar cap
+    ctx.globalAlpha = 0.55;
+    ctx.fillStyle = '#f0ece8';
+    ctx.beginPath(); ctx.ellipse(cx, cy - r*0.78, r*0.38, r*0.18, 0, 0, Math.PI*2); ctx.fill();
+    // Valles Marineris hint
+    ctx.globalAlpha = 0.25;
+    ctx.strokeStyle = '#5a1a04'; ctx.lineWidth = r * 0.08;
+    ctx.beginPath(); ctx.moveTo(cx - r*0.5, cy + r*0.05); ctx.bezierCurveTo(cx - r*0.1, cy - r*0.05, cx + r*0.2, cy + r*0.08, cx + r*0.55, cy + r*0.02); ctx.stroke();
+    // Limb darkening
+    ctx.globalAlpha = 1;
+    const limb = ctx.createRadialGradient(cx, cy, r*0.6, cx, cy, r);
+    limb.addColorStop(0,   'rgba(0,0,0,0)');
+    limb.addColorStop(1,   'rgba(0,0,0,0.55)');
+    ctx.fillStyle = limb; ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI*2); ctx.fill();
+    ctx.restore();
+
+    // Specular highlight
+    ctx.save();
+    ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI*2); ctx.clip();
+    const spec = ctx.createRadialGradient(cx - r*0.32, cy - r*0.32, 0, cx - r*0.32, cy - r*0.32, r*0.55);
+    spec.addColorStop(0, 'rgba(255,220,200,0.2)');
+    spec.addColorStop(1, 'rgba(255,220,200,0)');
+    ctx.fillStyle = spec; ctx.fillRect(cx - r, cy - r, r*2, r*2);
+    ctx.restore();
+  }
+
+  /* ── Draw Jupiter ── */
+  function drawJupiter(cx, cy, r) {
+    // Glow
+    glow(cx, cy, r, 'rgba(200,160,100,1)', r * 2.2);
+
+    // Base
+    const baseG = ctx.createRadialGradient(cx - r*0.25, cy - r*0.25, r*0.05, cx, cy, r);
+    baseG.addColorStop(0,   '#f0d8a8');
+    baseG.addColorStop(0.5, '#d4a870');
+    baseG.addColorStop(0.85,'#a07840');
+    baseG.addColorStop(1,   '#4a3010');
+    ctx.fillStyle = baseG;
+    ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI*2); ctx.fill();
+
+    // Bands
+    ctx.save();
+    ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI*2); ctx.clip();
+
+    const bands = [
+      { y: -0.70, h: 0.10, c: '#c89050', a: 0.55 },
+      { y: -0.52, h: 0.13, c: '#8a5828', a: 0.50 },
+      { y: -0.32, h: 0.08, c: '#d4a060', a: 0.30 },
+      { y: -0.18, h: 0.16, c: '#7a4820', a: 0.55 },
+      { y:  0.00, h: 0.10, c: '#c89050', a: 0.25 },
+      { y:  0.13, h: 0.14, c: '#8a4820', a: 0.50 },
+      { y:  0.30, h: 0.08, c: '#d4a878', a: 0.25 },
+      { y:  0.42, h: 0.16, c: '#a06030', a: 0.45 },
+      { y:  0.62, h: 0.10, c: '#c8a060', a: 0.30 },
+    ];
+    bands.forEach(b => {
+      ctx.globalAlpha = b.a;
+      ctx.fillStyle = b.c;
+      ctx.beginPath();
+      ctx.ellipse(cx, cy + r * b.y, r * 1.02, r * b.h, 0, 0, Math.PI*2);
+      ctx.fill();
+    });
+
+    // Great Red Spot
+    const grsX = cx + r * 0.28, grsY = cy + r * 0.22;
+    ctx.globalAlpha = 0.85;
+    const grs = ctx.createRadialGradient(grsX, grsY, 0, grsX, grsY, r * 0.16);
+    grs.addColorStop(0,   '#c04020');
+    grs.addColorStop(0.5, '#a03010');
+    grs.addColorStop(1,   'rgba(140,40,16,0)');
+    ctx.fillStyle = grs;
+    ctx.beginPath(); ctx.ellipse(grsX, grsY, r*0.16, r*0.10, -0.2, 0, Math.PI*2); ctx.fill();
+
+    // Limb darkening
+    ctx.globalAlpha = 1;
+    const limb = ctx.createRadialGradient(cx, cy, r*0.65, cx, cy, r);
+    limb.addColorStop(0, 'rgba(0,0,0,0)');
+    limb.addColorStop(1, 'rgba(0,0,0,0.6)');
+    ctx.fillStyle = limb; ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI*2); ctx.fill();
+    ctx.restore();
+
+    // Specular highlight
+    ctx.save();
+    ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI*2); ctx.clip();
+    const spec = ctx.createRadialGradient(cx - r*0.3, cy - r*0.3, 0, cx - r*0.3, cy - r*0.3, r*0.6);
+    spec.addColorStop(0, 'rgba(255,240,200,0.22)');
+    spec.addColorStop(1, 'rgba(255,240,200,0)');
+    ctx.fillStyle = spec; ctx.fillRect(cx-r, cy-r, r*2, r*2);
+    ctx.restore();
+
+    // Ring
+    ctx.save();
+    ctx.globalAlpha = 0.18;
+    ctx.strokeStyle = '#d4b060';
+    ctx.lineWidth = r * 0.08;
+    ctx.beginPath();
+    ctx.ellipse(cx, cy + r * 0.05, r * 1.65, r * 0.20, 0, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.globalAlpha = 0.10;
+    ctx.lineWidth = r * 0.14;
+    ctx.beginPath();
+    ctx.ellipse(cx, cy + r * 0.05, r * 1.85, r * 0.22, 0, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  function draw() {
+    t += 0.006;
+
+    // Deep space background
+    const bgG = ctx.createLinearGradient(0, 0, W, H);
+    bgG.addColorStop(0,   '#05080f');
+    bgG.addColorStop(0.5, '#080c1a');
+    bgG.addColorStop(1,   '#0a0e22');
+    ctx.fillStyle = bgG; ctx.fillRect(0, 0, W, H);
+
+    // Nebula wisps
+    ctx.save();
+    ctx.globalAlpha = 0.04;
+    const neb1 = ctx.createRadialGradient(W*0.7, H*0.3, 0, W*0.7, H*0.3, W*0.35);
+    neb1.addColorStop(0, '#6040a0'); neb1.addColorStop(1, 'transparent');
+    ctx.fillStyle = neb1; ctx.fillRect(0,0,W,H);
+    const neb2 = ctx.createRadialGradient(W*0.2, H*0.7, 0, W*0.2, H*0.7, W*0.3);
+    neb2.addColorStop(0, '#204080'); neb2.addColorStop(1, 'transparent');
+    ctx.fillStyle = neb2; ctx.fillRect(0,0,W,H);
+    ctx.restore();
+
+    // Stars
+    stars.forEach(s => {
+      const twinkle = 0.4 + 0.6 * Math.abs(Math.sin(t * 0.8 + s.twinkleOffset));
+      ctx.globalAlpha = twinkle * 0.8;
+      ctx.fillStyle = s.r > 1.0 ? '#d8e8ff' : '#c0d0f0';
+      ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, Math.PI*2); ctx.fill();
+    });
+    ctx.globalAlpha = 1;
+
+    // Mars orbit path (subtle)
+    const marsOrbitR = Math.min(W, H) * 0.38;
+    const marsAngle  = t * 0.22;
+    const marsX = W * 0.72 + Math.cos(marsAngle) * marsOrbitR * 0.15;
+    const marsY = H * 0.28 + Math.sin(marsAngle) * marsOrbitR * 0.08;
+    const marsR = Math.min(W, H) * 0.085;
+
+    // Jupiter — larger, further back, slow drift
+    const jupX  = W * 0.80 + Math.cos(t * 0.08) * 12;
+    const jupY  = H * 0.68 + Math.sin(t * 0.06) * 8;
+    const jupR  = Math.min(W, H) * 0.14;
+    drawJupiter(jupX, jupY, jupR);
+
+    // Mars
+    drawMars(marsX, marsY, marsR);
+
+    // Shooting stars (random)
+    if (Math.random() < 0.004) {
+      const sx = Math.random() * W, sy = Math.random() * H * 0.5;
+      ctx.save();
+      ctx.globalAlpha = 0.7;
+      const sg = ctx.createLinearGradient(sx, sy, sx + 80, sy + 30);
+      sg.addColorStop(0, 'rgba(255,255,255,0)');
+      sg.addColorStop(1, 'rgba(255,255,255,0.9)');
+      ctx.strokeStyle = sg; ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.moveTo(sx, sy); ctx.lineTo(sx + 80, sy + 30); ctx.stroke();
+      ctx.restore();
+    }
+
+    requestAnimationFrame(draw);
+  }
+
+  window.addEventListener('resize', resize);
+  resize();
+  draw();
+})();
+
 /* ─── SIDEBAR SHOW/HIDE LOGIC ─── */
 const sidebar   = document.getElementById('sidebar');
 const mainEl    = document.getElementById('mainContent');
 const hamBtn    = document.getElementById('hamBtn');
-const edgeTrig  = document.getElementById('edgeTrigger');
 
-let scrolled       = false;
-let nearLeft       = false;
-let hideTimer      = null;
-let isMobile       = () => window.innerWidth <= 768;
-let mobileOpen     = false;
+let scrolled    = false;
+let nearLeft    = false;
+let hideTimer   = null;
+let mobileOpen  = false;
+const isMobile  = () => window.innerWidth <= 768;
 
 function showSidebar() {
   sidebar.classList.remove('hidden');
@@ -816,55 +1073,38 @@ function hideSidebar() {
   if (!isMobile()) mainEl.classList.add('expanded');
 }
 
-// Scroll: hide sidebar after 120px scroll
 window.addEventListener('scroll', () => {
   scrolled = window.scrollY > 120;
-  if (scrolled && !nearLeft && !isMobile()) {
-    hideSidebar();
-  } else if (!scrolled && !isMobile()) {
-    showSidebar();
-  }
+  if (scrolled && !nearLeft && !isMobile()) hideSidebar();
+  else if (!scrolled && !isMobile()) showSidebar();
   // Progress bar
   const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight);
   document.getElementById('progBar').style.width = (pct * 100) + '%';
 }, { passive: true });
 
-// Mouse: show when within 40px of left edge
 document.addEventListener('mousemove', e => {
   if (isMobile()) return;
   nearLeft = e.clientX < 40;
-  if (nearLeft) {
-    clearTimeout(hideTimer);
-    showSidebar();
-  } else if (scrolled) {
-    clearTimeout(hideTimer);
-    hideTimer = setTimeout(hideSidebar, 600);
-  }
+  if (nearLeft) { clearTimeout(hideTimer); showSidebar(); }
+  else if (scrolled) { clearTimeout(hideTimer); hideTimer = setTimeout(hideSidebar, 600); }
 });
 
-// Mobile hamburger
 hamBtn.addEventListener('click', () => {
   mobileOpen = !mobileOpen;
   hamBtn.classList.toggle('open', mobileOpen);
-  if (mobileOpen) sidebar.classList.add('visible');
-  else sidebar.classList.remove('visible');
+  sidebar.classList.toggle('visible', mobileOpen);
 });
 
-// Close sidebar on nav link click (mobile)
 document.querySelectorAll('.sb-link').forEach(link => {
   link.addEventListener('click', () => {
-    if (isMobile()) {
-      mobileOpen = false;
-      hamBtn.classList.remove('open');
-      sidebar.classList.remove('visible');
-    }
+    if (isMobile()) { mobileOpen = false; hamBtn.classList.remove('open'); sidebar.classList.remove('visible'); }
   });
 });
 
 /* ─── ACTIVE NAV ON SCROLL ─── */
-const sections  = document.querySelectorAll('section[id]');
-const navLinks  = document.querySelectorAll('.sb-link');
-const navObs    = new IntersectionObserver(entries => {
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.sb-link');
+new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) {
       navLinks.forEach(a => a.classList.remove('active'));
@@ -872,6 +1112,9 @@ const navObs    = new IntersectionObserver(entries => {
       if (a) a.classList.add('active');
     }
   });
+}, { threshold: 0.3 }).observe || sections.forEach(s => {});
+const navObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { navLinks.forEach(a=>a.classList.remove('active')); const a=document.querySelector(`.sb-link[href="#${e.target.id}"]`); if(a)a.classList.add('active'); }});
 }, { threshold: 0.3 });
 sections.forEach(s => navObs.observe(s));
 
@@ -881,79 +1124,92 @@ const revObs = new IntersectionObserver(entries => {
 }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
 document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
 
-/* ─── CITATION COUNTS from Semantic Scholar ─── */
+/* ─── CITATION COUNTS ───────────────────────────────────────────────────
+   Google Scholar has no public API (they block bots).
+   We use CrossRef (official DOI registry) as primary source — very reliable.
+   Semantic Scholar as fallback. Badge links to your Google Scholar profile.
+──────────────────────────────────────────────────────────────────────── */
+const SCHOLAR_URL = 'https://scholar.google.co.in/citations?user=ZY4HKMoAAAAJ&hl=en';
+
 const papers = [
-  { id: 'cite-1', doi: '10.1029/2025JE008934', url: 'https://scholar.google.co.in/citations?user=ZY4HKMoAAAAJ&hl=en' },
-  { id: 'cite-2', doi: '10.1029/2023JE008227', url: 'https://scholar.google.co.in/citations?user=ZY4HKMoAAAAJ&hl=en' },
-  { id: 'cite-3', doi: '10.1029/2022JE007302', url: 'https://scholar.google.co.in/citations?user=ZY4HKMoAAAAJ&hl=en' },
-  { id: 'cite-4', doi: '10.1016/j.newast.2019.101349', url: 'https://scholar.google.co.in/citations?user=ZY4HKMoAAAAJ&hl=en' },
-  { id: 'cite-5', doi: '10.1016/j.heliyon.2019.e02972', url: 'https://scholar.google.co.in/citations?user=ZY4HKMoAAAAJ&hl=en' },
-  { id: 'cite-6', doi: null, url: 'https://scholar.google.co.in/citations?user=ZY4HKMoAAAAJ&hl=en' },
+  { id: 'cite-1', doi: '10.1029/2025JE008934' },
+  { id: 'cite-2', doi: '10.1029/2023JE008227' },
+  { id: 'cite-3', doi: '10.1029/2022JE007302' },
+  { id: 'cite-4', doi: '10.1016/j.newast.2019.101349' },
+  { id: 'cite-5', doi: '10.1016/j.heliyon.2019.e02972' },
+  { id: 'cite-6', doi: null },
 ];
 
-async function fetchCitations({ id, doi, url }) {
+function setCiteBadge(id, count, source) {
   const el = document.getElementById(id);
   if (!el) return;
-  const numEl = el.querySelector('.cite-num');
-
-  if (!doi) {
-    el.innerHTML = `<a href="${url}" target="_blank" style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--navy);text-decoration:none;">📊 Scholar</a>`;
-    return;
-  }
-
-  try {
-    const res = await fetch(`https://api.semanticscholar.org/graph/v1/paper/DOI:${doi}?fields=citationCount,externalIds`);
-    if (!res.ok) throw new Error('API error');
-    const data = await res.json();
-    const count = data.citationCount;
-    if (count !== undefined) {
-      numEl.classList.remove('cite-loading');
-      el.innerHTML = `<span>📊</span><span class="cite-num">${count} citation${count !== 1 ? 's' : ''}</span>`;
-      el.title = 'Citation count via Semantic Scholar';
-      el.style.cursor = 'pointer';
-      el.addEventListener('click', () => window.open(url, '_blank'));
-    } else {
-      throw new Error('No count');
-    }
-  } catch {
-    if (numEl) {
-      numEl.classList.remove('cite-loading');
-      el.innerHTML = `<a href="${url}" target="_blank" style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--navy);text-decoration:none;">📊 Scholar</a>`;
-    }
+  if (count !== null && count !== undefined) {
+    el.innerHTML = `<span>📊</span><span class="cite-num">${count} cited</span>`;
+    el.title = `Citation count via ${source} · Click to view on Google Scholar`;
+    el.href = SCHOLAR_URL;
+    el.target = '_blank';
+    el.style.textDecoration = 'none';
+    // Turn badge into a link tag
+    const a = document.createElement('a');
+    a.href = SCHOLAR_URL; a.target = '_blank'; a.className = 'cite-badge';
+    a.title = el.title; a.innerHTML = el.innerHTML;
+    el.replaceWith(a);
+  } else {
+    el.innerHTML = `<a href="${SCHOLAR_URL}" target="_blank" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--navy);text-decoration:none;">📊 Google Scholar</a>`;
   }
 }
 
-// Stagger API calls to avoid rate limits
-papers.forEach((p, i) => setTimeout(() => fetchCitations(p), i * 400));
+async function fetchCrossRef(doi) {
+  const res = await fetch(`https://api.crossref.org/works/${encodeURIComponent(doi)}?mailto=pkbasuvaraj@gmail.com`);
+  if (!res.ok) throw new Error('CrossRef error');
+  const data = await res.json();
+  const count = data.message?.['is-referenced-by-count'];
+  if (count === undefined) throw new Error('No count');
+  return count;
+}
 
-/* ─── VISITOR COUNTER via hits.sh ─── */
-// We use a tracking pixel + display a separate count
-// For GitHub Pages, we use the hits API
-(async function loadVisitorCount() {
+async function fetchSemanticScholar(doi) {
+  const res = await fetch(`https://api.semanticscholar.org/graph/v1/paper/DOI:${doi}?fields=citationCount`);
+  if (!res.ok) throw new Error('SS error');
+  const data = await res.json();
+  if (data.citationCount === undefined) throw new Error('No count');
+  return data.citationCount;
+}
+
+async function loadCitation({ id, doi }) {
+  if (!doi) { setCiteBadge(id, null, ''); return; }
+  // Try CrossRef first
+  try {
+    const count = await fetchCrossRef(doi);
+    setCiteBadge(id, count, 'CrossRef');
+    return;
+  } catch {}
+  // Fallback to Semantic Scholar
+  try {
+    const count = await fetchSemanticScholar(doi);
+    setCiteBadge(id, count, 'Semantic Scholar');
+  } catch {
+    setCiteBadge(id, null, '');
+  }
+}
+
+// Stagger fetches — CrossRef is polite-API and appreciates it
+papers.forEach((p, i) => setTimeout(() => loadCitation(p), i * 600));
+
+/* ─── VISITOR COUNTER ─── */
+(async function() {
   try {
     const res = await fetch('https://hits.sh/pkbasuvaraj.github.io.json');
     const data = await res.json();
-    if (data && data.count) {
-      document.getElementById('visitCount').textContent = Number(data.count).toLocaleString();
-    } else {
-      throw new Error();
-    }
+    if (data?.count) document.getElementById('visitCount').textContent = Number(data.count).toLocaleString();
+    else throw new Error();
   } catch {
-    // Fallback: load as image (still tracks the visit) and show badge
-    const img = new Image();
-    img.src = 'https://hits.sh/pkbasuvaraj.github.io.svg';
     document.getElementById('visitCount').textContent = '—';
     document.querySelector('.visitor-sub').textContent = 'visit counted ✓';
     document.querySelector('.visitor-sub').style.color = 'var(--navy)';
   }
-})();
-
-/* ─── Also embed the tracking pixel silently ─── */
-(function() {
-  const img = new Image();
-  img.src = 'https://hits.sh/pkbasuvaraj.github.io.svg';
-  img.style.display = 'none';
-  document.body.appendChild(img);
+  // Tracking pixel
+  new Image().src = 'https://hits.sh/pkbasuvaraj.github.io.svg';
 })();
 </script>
 </body>
