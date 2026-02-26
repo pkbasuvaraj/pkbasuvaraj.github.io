@@ -1,225 +1,192 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Praveen Kumar Basuvaraj — Space Physicist</title>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Nunito+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-/* ─── Reset & Base ─── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root {
-  --navy: #1a3560;
-  --navy2: #2a4f8a;
-  --red: #c0392b;
-  --gold: #9a7320;
-  --bg: #f7f5f1;
-  --bg2: #eeeae3;
-  --white: #ffffff;
-  --ink: #1c1a17;
-  --ink2: #3d3a34;
-  --ink3: #6e6a62;
-  --border: #ddd9d1;
-  --sidebar-w: 260px;
-  --content-max: 860px;
-}
-html { scroll-behavior: smooth; }
-body {
-  background: var(--bg);
-  color: var(--ink);
-  font-family: 'Nunito Sans', sans-serif;
-  font-size: 18px;          /* ← increased base size */
-  line-height: 1.82;        /* ← slightly more breathing room */
-  overflow-x: hidden;
-}
-/* Reduced paddings globally to decrease scrolling */
-.content-inner { padding: 50px 40px 70px; }
-.section { padding: 50px 0; }
-/* ─── Mobile hamburger trigger ─── */
-.ham-btn {
-  display: none;
-  position: fixed; top: 16px; left: 16px; z-index: 500;
-  width: 44px; height: 44px; border-radius: 8px;
-  background: var(--navy); border: none; cursor: pointer;
-  flex-direction: column; align-items: center; justify-content: center; gap: 6px;
-  box-shadow: 0 3px 14px rgba(26,53,96,0.3);
-}
-.ham-btn span { width: 22px; height: 2.4px; background: white; }
-/* ... rest of ham-btn unchanged ... */
-
-/* Sidebar tweaks — slightly larger text */
-.sb-name { font-size: 18px; }
-.sb-title { font-size: 11.5px; }
-.sb-link { font-size: 16px; }
-
-/* Headings larger & tighter */
-h2 { font-size: clamp(2.1rem, 3.4vw, 2.8rem); line-height: 1.18; }
-h3.grp { font-size: 13px; margin: 32px 0 16px; }
-.pub-title { font-size: 18.5px; }
-.cv-role { font-size: 17px; }
-
-/* Hero — made more compact */
-.hero-inner { padding: 70px 40px; }
-.hero-name { font-size: clamp(2.8rem, 6vw, 4.2rem); }
-.hero-role { font-size: 14px; }
-.interest-chips .chip { font-size: 14.5px; padding: 7px 18px; }
-
-/* Media queries — tighter mobile */
-@media (max-width: 768px) {
-  .content-inner { padding: 40px 24px 60px; }
-  .hero-inner { padding: 55px 24px 50px; }
-  h2 { font-size: 2rem; }
-}
-</style>
-</head>
-<body>
-
-<!-- [hamburger, progress bar, edge-trigger unchanged] -->
-
-<aside class="sidebar" id="sidebar">
-  <div class="sidebar-inner">
-    <!-- profile img, name, title unchanged -->
-    <div class="sb-updated">
-      <strong>Last updated</strong>
-      26 February 2026
-    </div>
-    <!-- nav & social unchanged -->
-  </div>
-</aside>
-
-<main class="main" id="mainContent">
-<div class="content-inner">
-
-<section class="section" id="home">
-  <canvas id="space-canvas"></canvas>
-  <div class="hero-inner">
-    <!-- hero content unchanged, just tighter spacing -->
-  </div>
-</section>
-
-<!-- CV, Publications, Conferences sections unchanged except dates -->
-<section class="section reveal" id="cv">
-  <div class="sec-top">
-    <!-- ... -->
-    <span class="sec-updated">26 Feb 2026</span>
-  </div>
-  <!-- rest unchanged -->
-</section>
-
-<!-- publications & conferences similar date update -->
-
-<section class="section reveal" id="photos">
-  <div class="sec-top">
-    <!-- ... -->
-    <span class="sec-updated">26 Feb 2026</span>
-  </div>
-  <!-- photos unchanged -->
-</section>
-
-<div class="visitor-section reveal">
-  <div class="visitor-label">Page Visits</div>
-  <div class="visitor-counter-wrap">
-    <span class="visitor-icon">👁️</span>
-    <div>
-      <div class="visitor-count" id="visitCount">—</div>
-      <div class="visitor-sub">total visitors</div>
-    </div>
-  </div>
-  <!-- GoatCounter code – replace YOUR_SITE_CODE -->
-  <script data-goatcounter="https://YOUR_SITE_CODE.goatcounter.com/count"
-          async src="//gc.zgo.at/count.js"></script>
-</div>
-
-<footer>
-  <!-- ... -->
-  Page last updated: <strong>26 February 2026</strong>
-  <!-- ... -->
-</footer>
-</div>
-</main>
-
 <script>
-// ─── IMPROVED SPACE CANVAS ─── Mars prominent + both rotating
-(function() {
-  const canvas = document.getElementById('space-canvas');
+/* ═══════════════════════════════════════
+   SPACE + PLANETS + COUNTER + CITATIONS
+═══════════════════════════════════════ */
+
+(function () {
+
+  /* ─────────────────────────
+     CANVAS SETUP
+  ───────────────────────── */
+  const canvas = document.getElementById("space-canvas");
   if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  let W, H, stars = [], t = 0;
+
+  const ctx = canvas.getContext("2d");
+  let W, H;
+  let stars = [];
+  let t = 0;
 
   function resize() {
-    const section = document.getElementById('home');
+    const section = document.getElementById("home");
     W = canvas.width = section.offsetWidth;
     H = canvas.height = section.offsetHeight;
     buildStars();
   }
 
-  function buildStars() { /* unchanged */ }
+  function buildStars() {
+    stars = Array.from({ length: 300 }, () => ({
+      x: Math.random() * W,
+      y: Math.random() * H,
+      r: Math.random() * 1.4 + 0.2,
+      speed: Math.random() * 0.15 + 0.05,
+      tw: Math.random() * Math.PI * 2
+    }));
+  }
 
-  function glow(/* unchanged */) { /* unchanged */ }
+  function drawStars() {
+    stars.forEach(s => {
+      const alpha = 0.4 + Math.sin(t * 0.02 + s.tw) * 0.3;
+      ctx.fillStyle = `rgba(255,255,255,${alpha})`;
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      ctx.fill();
 
-  function drawMars(cx, cy, r, rotation) {
+      s.y += s.speed;
+      if (s.y > H) s.y = 0;
+    });
+  }
+
+  /* ─────────────────────────
+     MARS (PRIMARY — LARGER)
+  ───────────────────────── */
+  function drawMars() {
+    const cx = W * 0.35;
+    const cy = H * 0.6;
+    const r = Math.min(W, H) * 0.15;
+
+    // glow
+    const glow = ctx.createRadialGradient(cx, cy, 0, cx, cy, r * 2);
+    glow.addColorStop(0, "rgba(255,120,80,0.4)");
+    glow.addColorStop(1, "rgba(255,120,80,0)");
+    ctx.fillStyle = glow;
+    ctx.beginPath();
+    ctx.arc(cx, cy, r * 2, 0, Math.PI * 2);
+    ctx.fill();
+
+    // base sphere
+    const grad = ctx.createRadialGradient(
+      cx - r * 0.4,
+      cy - r * 0.4,
+      r * 0.2,
+      cx,
+      cy,
+      r
+    );
+    grad.addColorStop(0, "#ffb199");
+    grad.addColorStop(0.5, "#c1442e");
+    grad.addColorStop(1, "#4a140c");
+
+    ctx.fillStyle = grad;
+    ctx.beginPath();
+    ctx.arc(cx, cy, r, 0, Math.PI * 2);
+    ctx.fill();
+
+    // subtle rotation effect
     ctx.save();
-    ctx.translate(cx, cy);
-    ctx.rotate(rotation);          // ← self-rotation
-    ctx.translate(-cx, -cy);
+    ctx.beginPath();
+    ctx.arc(cx, cy, r, 0, Math.PI * 2);
+    ctx.clip();
 
-    // Atmosphere glow
-    glow(cx, cy, r, 'rgba(200,80,40,1)', r * 1.9);
+    ctx.globalAlpha = 0.2;
+    ctx.fillStyle = "#7a2b1a";
+    ctx.beginPath();
+    ctx.ellipse(
+      cx + Math.sin(t * 0.01) * r * 0.3,
+      cy,
+      r * 0.8,
+      r * 0.2,
+      0,
+      0,
+      Math.PI * 2
+    );
+    ctx.fill();
+    ctx.restore();
+  }
 
-    // Base sphere (unchanged drawing code)
-    const baseG = ctx.createRadialGradient(cx - r*0.3, cy - r*0.3, r*0.05, cx, cy, r);
-    // ... rest of Mars drawing code unchanged ...
+  /* ─────────────────────────
+     JUPITER (SECONDARY)
+  ───────────────────────── */
+  function drawJupiter() {
+    const cx = W * 0.8;
+    const cy = H * 0.3;
+    const r = Math.min(W, H) * 0.09;
+
+    ctx.beginPath();
+    ctx.arc(cx, cy, r, 0, Math.PI * 2);
+    ctx.fillStyle = "#d9b38c";
+    ctx.fill();
+
+    ctx.save();
+    ctx.beginPath();
+    ctx.arc(cx, cy, r, 0, Math.PI * 2);
+    ctx.clip();
+
+    for (let i = -4; i <= 4; i++) {
+      ctx.fillStyle = `rgba(150,100,60,${0.2 + Math.abs(i) * 0.05})`;
+      ctx.fillRect(
+        cx - r,
+        cy + i * 6 + Math.sin(t * 0.02) * 3,
+        r * 2,
+        4
+      );
+    }
 
     ctx.restore();
   }
 
-  function drawJupiter(cx, cy, r, rotation) {
-    ctx.save();
-    ctx.translate(cx, cy);
-    ctx.rotate(rotation);          // ← self-rotation
-    ctx.translate(-cx, -cy);
-
-    // Jupiter drawing code unchanged ...
-
-    ctx.restore();
+  function animate() {
+    ctx.clearRect(0, 0, W, H);
+    t++;
+    drawStars();
+    drawMars();
+    drawJupiter();
+    requestAnimationFrame(animate);
   }
 
-  function draw() {
-    t += 0.0065;
-
-    // background, nebula, stars unchanged ...
-
-    // Mars — larger, more central, faster rotation
-    const marsOrbitR = Math.min(W, H) * 0.42;
-    const marsAngle  = t * 0.18;
-    const marsX = W * 0.68 + Math.cos(marsAngle) * marsOrbitR * 0.12;
-    const marsY = H * 0.32 + Math.sin(marsAngle) * marsOrbitR * 0.09;
-    const marsR = Math.min(W, H) * 0.105;           // ← bigger
-    const marsRotation = t * 0.9;                   // ← spins faster
-
-    drawMars(marsX, marsY, marsR, marsRotation);
-
-    // Jupiter — smaller, further, slower rotation
-    const jupX = W * 0.78 + Math.cos(t * 0.07) * 14;
-    const jupY = H * 0.65 + Math.sin(t * 0.05) * 10;
-    const jupR = Math.min(W, H) * 0.125;
-    const jupRotation = t * 0.35;                   // ← slower spin
-
-    drawJupiter(jupX, jupY, jupR, jupRotation);
-
-    // shooting stars unchanged ...
-
-    requestAnimationFrame(draw);
-  }
-
-  window.addEventListener('resize', resize);
   resize();
-  draw();
+  window.addEventListener("resize", resize);
+  animate();
+
 })();
 
-// Rest of your scripts (sidebar, active nav, scroll reveal, citations) unchanged
+/* ─────────────────────────
+   GOATCOUNTER FIX
+───────────────────────── */
+fetch("https://YOUR_GOATCOUNTER_CODE.goatcounter.com/counter/TOTAL.json")
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("visitCount").textContent = data.count;
+  })
+  .catch(() => {
+    document.getElementById("visitCount").textContent = "—";
+  });
 
-// Visitor counter fallback remains if GoatCounter not set up yet
+/* ─────────────────────────
+   CROSSREF CITATION COUNTS
+───────────────────────── */
+const dois = {
+  1: "10.1029/2025JE008934",
+  2: "10.1029/2023JE008227",
+  3: "10.1029/2022JE007302",
+  4: "10.1016/j.newast.2019.101349",
+  5: "10.1016/j.heliyon.2019.e02972",
+  6: "10.XXXX/XXXX" // replace if needed
+};
+
+Object.entries(dois).forEach(([id, doi]) => {
+  fetch(`https://api.crossref.org/works/${doi}`)
+    .then(res => res.json())
+    .then(data => {
+      const count = data.message["is-referenced-by-count"];
+      const el = document.querySelector(`#cite-${id} .cite-num`);
+      if (el) {
+        el.textContent = count;
+        el.classList.remove("cite-loading");
+      }
+    })
+    .catch(() => {
+      const el = document.querySelector(`#cite-${id} .cite-num`);
+      if (el) el.textContent = "—";
+    });
+});
 </script>
-</body>
-</html>
