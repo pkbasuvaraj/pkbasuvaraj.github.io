@@ -7,10 +7,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Nunito+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
-/* ─── Reset & Base (Glassmorphism Theme - Compact) ─── */
+/* ─── Compact Glassmorphism Theme ─── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  --glass-bg: rgba(18, 25, 43, 0.65);
+  --glass-bg: rgba(18, 25, 43, 0.72);
   --glass-border: rgba(255, 255, 255, 0.12);
   --glass-highlight: rgba(126, 184, 255, 0.15);
   --accent-blue: #7eb8ff;
@@ -18,7 +18,7 @@
   --text-main: #f0ece4;
   --text-muted: #aab2c0;
   --sidebar-w: 260px;
-  --content-max: 950px;
+  --content-max: 920px;
 }
 
 html { scroll-behavior: smooth; }
@@ -27,7 +27,7 @@ body {
   color: var(--text-main);
   font-family: 'Nunito Sans', sans-serif;
   font-size: 15px;
-  line-height: 1.6;
+  line-height: 1.58;
   overflow-x: hidden;
 }
 
@@ -37,14 +37,14 @@ body {
   z-index: -1; pointer-events: none;
 }
 
-/* ─── Glassmorphism Utilities ─── */
+/* ─── Glass Panels ─── */
 .glass-panel {
   background: var(--glass-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border: 1px solid var(--glass-border);
-  border-radius: 10px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
 }
 
 /* ─── Sidebar ─── */
@@ -56,34 +56,34 @@ body {
   transform: translateX(0);
   transition: transform 0.3s ease;
   overflow-y: auto;
-  border-right: none;
-  border-radius: 0 12px 12px 0;
+  border-radius: 0 10px 10px 0;
+  border-right: 1px solid var(--glass-border);
 }
 .sidebar.hidden { transform: translateX(calc(-1 * var(--sidebar-w))); }
-.sidebar-inner { padding: 30px 20px 20px; display: flex; flex-direction: column; height: 100%; }
+.sidebar-inner { padding: 26px 18px 20px; display: flex; flex-direction: column; height: 100%; }
 
 .sb-profile-img {
-  width: 80px; height: 80px; border-radius: 50%;
+  width: 78px; height: 78px; border-radius: 50%;
   object-fit: cover; border: 2px solid var(--accent-blue);
-  display: block; margin: 0 auto 12px;
-  box-shadow: 0 0 15px rgba(126, 184, 255, 0.2);
+  display: block; margin: 0 auto 10px;
+  box-shadow: 0 0 16px rgba(126, 184, 255, 0.25);
 }
 .sb-name {
   font-family: 'Lora', serif; font-size: 16px; font-weight: 600;
-  text-align: center; color: white; line-height: 1.2; margin-bottom: 4px;
+  text-align: center; color: white; line-height: 1.2; margin-bottom: 3px;
 }
 .sb-title {
   font-family: 'JetBrains Mono', monospace; font-size: 10px;
   letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-gold);
-  text-align: center; margin-bottom: 16px;
+  text-align: center; margin-bottom: 14px;
 }
-.sb-divider { height: 1px; background: var(--glass-border); margin-bottom: 16px; }
+.sb-divider { height: 1px; background: var(--glass-border); margin-bottom: 14px; }
 
-.sb-nav { display: flex; flex-direction: column; gap: 4px; flex: 1; }
+.sb-nav { display: flex; flex-direction: column; gap: 3px; flex: 1; }
 .sb-link {
   display: flex; align-items: center; gap: 10px;
-  padding: 10px 14px; border-radius: 6px;
-  text-decoration: none; color: var(--text-muted); font-size: 14px; font-weight: 500;
+  padding: 8px 12px; border-radius: 6px;
+  text-decoration: none; color: var(--text-muted); font-size: 13.5px; font-weight: 500;
   transition: all 0.2s ease; border: 1px solid transparent;
 }
 .sb-link:hover, .sb-link.active {
@@ -94,8 +94,8 @@ body {
 .sb-bottom { margin-top: auto; }
 .sb-updated {
   font-family: 'JetBrains Mono', monospace; font-size: 10px;
-  color: var(--text-muted); line-height: 1.5; padding: 12px 0 0;
-  border-top: 1px solid var(--glass-border); margin-top: 16px;
+  color: var(--text-muted); line-height: 1.5; padding: 10px 0 0;
+  border-top: 1px solid var(--glass-border); margin-top: 12px;
 }
 .sb-updated strong { color: var(--accent-blue); display: block; margin-bottom: 2px; }
 
@@ -107,156 +107,167 @@ body {
 }
 .main.expanded { margin-left: 0; }
 .content-inner {
-  max-width: var(--content-max); margin: 0 auto; padding: 40px 30px 60px;
+  max-width: var(--content-max); margin: 0 auto; padding: 36px 28px 50px;
 }
 
-/* ─── Sections & Typography ─── */
-.section { padding: 30px 0; margin-bottom: 20px; }
-.sec-top { margin-bottom: 24px; }
+/* ─── Headings & Structure ─── */
+.section { padding: 24px 0; margin-bottom: 12px; }
+.sec-top { margin-bottom: 16px; }
 .sec-kicker {
-  font-family: 'JetBrains Mono', monospace; font-size: 11px;
-  letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent-gold);
-  margin-bottom: 8px; display: flex; align-items: center; gap: 8px;
+  font-family: 'JetBrains Mono', monospace; font-size: 10.5px;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-gold);
+  margin-bottom: 6px; display: flex; align-items: center; gap: 8px;
 }
-.sec-kicker::after { content: ''; display: inline-block; width: 30px; height: 1px; background: var(--accent-gold); opacity: 0.5; }
+.sec-kicker::after { content: ''; display: inline-block; width: 26px; height: 1px; background: var(--accent-gold); opacity: 0.4; }
 h2 {
-  font-family: 'Lora', serif; font-size: clamp(1.6rem, 2.5vw, 2.2rem);
-  font-weight: 600; color: white; letter-spacing: -0.01em; line-height: 1.1;
+  font-family: 'Lora', serif; font-size: clamp(1.6rem, 2.3vw, 2.1rem);
+  font-weight: 600; color: white; letter-spacing: -0.01em; line-height: 1.15;
 }
 h2 em { color: var(--accent-blue); font-style: italic; font-weight: 400; }
+
 h3.grp {
   font-family: 'JetBrains Mono', monospace; font-size: 11px;
-  letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent-gold);
-  padding-bottom: 6px; border-bottom: 1px solid var(--glass-border);
-  margin: 24px 0 12px;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-gold);
+  padding-bottom: 4px; border-bottom: 1px solid var(--glass-border);
+  margin: 20px 0 10px;
 }
+h3.grp:first-of-type { margin-top: 0; }
 
-/* ─── Home / Hero ─── */
-.hero-glass { padding: 30px; position: relative; overflow: hidden; margin-bottom: 10px; }
+/* ─── Hero ─── */
+.hero-glass { padding: 26px 28px; position: relative; overflow: hidden; margin-bottom: 12px; }
 .hero-name {
-  font-family: 'Lora', serif; font-size: clamp(2rem, 4vw, 3.2rem);
-  font-weight: 700; color: white; line-height: 1.1; margin-bottom: 8px;
+  font-family: 'Lora', serif; font-size: clamp(2rem, 3.8vw, 3rem);
+  font-weight: 700; color: white; line-height: 1.08; margin-bottom: 6px;
 }
 .hero-name em { color: var(--accent-blue); font-style: italic; }
 .hero-role {
   font-family: 'JetBrains Mono', monospace; font-size: 12px;
   letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-gold);
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 .hero-affil {
   font-size: 14.5px; color: var(--text-muted); line-height: 1.6;
-  border-left: 3px solid var(--accent-blue); padding-left: 16px;
-  margin-bottom: 24px;
+  border-left: 3px solid var(--accent-blue); padding-left: 14px;
+  margin-bottom: 18px;
 }
 .hero-affil strong { color: white; font-weight: 600; }
-
+.hero-chips { display: flex; flex-wrap: wrap; gap: 6px; }
 .chip {
-  font-size: 12px; padding: 6px 14px; border-radius: 100px;
-  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15);
+  font-size: 12px; padding: 4px 12px; border-radius: 100px;
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.14);
   color: var(--text-muted); transition: all 0.2s ease; cursor: default;
-  display: inline-block; margin: 0 6px 6px 0;
 }
 .chip:hover { background: var(--glass-highlight); color: white; border-color: var(--accent-blue); }
 
-/* ─── CV & Lists ─── */
+/* ─── CV Rows ─── */
 .cv-row {
-  display: grid; grid-template-columns: 130px 1fr;
-  gap: 12px 16px; padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.05);
-  transition: background 0.2s ease; border-radius: 6px;
+  display: grid; grid-template-columns: 140px 1fr;
+  gap: 10px 16px; padding: 9px 12px; border-bottom: 1px solid rgba(255,255,255,0.04);
+  border-radius: 5px; transition: background 0.15s ease;
 }
 .cv-row:hover { background: rgba(255, 255, 255, 0.03); }
 .cv-row:last-child { border-bottom: none; }
 .cv-date {
   font-family: 'JetBrains Mono', monospace; font-size: 12px;
-  color: var(--accent-blue); padding-top: 2px;
+  color: var(--accent-blue); padding-top: 1px;
 }
-.cv-role { font-weight: 600; font-size: 15px; color: white; margin-bottom: 2px; }
-.cv-org { font-size: 13.5px; color: var(--text-muted); }
+.cv-role { font-weight: 600; font-size: 14.5px; color: white; margin-bottom: 1px; }
+.cv-org { font-size: 13.5px; color: var(--text-muted); line-height: 1.45; }
 
-/* ─── Publications ─── */
+/* ─── Publications & Proceedings ─── */
 .pub-item {
-  padding: 14px; border-bottom: 1px solid rgba(255,255,255,0.05);
-  border-radius: 6px; transition: all 0.2s ease; margin-bottom: 8px;
+  display: grid; grid-template-columns: 28px 1fr; gap: 10px;
+  padding: 12px 14px; border-bottom: 1px solid rgba(255,255,255,0.05);
+  border-radius: 6px; transition: all 0.2s ease;
 }
-.pub-item:hover { background: rgba(255,255,255,0.03); transform: translateX(4px); }
+.pub-item:last-child { border-bottom: none; }
+.pub-item:hover { background: rgba(255,255,255,0.03); transform: translateX(3px); }
+.pub-n { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent-gold); padding-top: 2px; }
 .pub-title {
-  font-family: 'Lora', serif; font-size: 16px; font-weight: 600;
-  color: white; margin-bottom: 6px; line-height: 1.3;
+  font-family: 'Lora', serif; font-size: 15.5px; font-weight: 600;
+  color: white; margin-bottom: 4px; line-height: 1.35;
 }
-.pub-authors { font-size: 13.5px; color: var(--text-muted); margin-bottom: 8px; line-height: 1.5; }
+.pub-authors { font-size: 13px; color: var(--text-muted); margin-bottom: 6px; line-height: 1.5; }
 .pub-authors strong { color: var(--accent-blue); font-weight: 600; }
-.pub-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
-.pub-journal { font-size: 13px; color: var(--accent-gold); font-style: italic; }
+.pub-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
+.pub-journal { font-size: 12.5px; color: var(--accent-gold); font-style: italic; }
 .pub-doi, .cite-badge {
-  font-family: 'JetBrains Mono', monospace; font-size: 11px; text-decoration: none;
-  padding: 3px 10px; border-radius: 4px; transition: all 0.2s;
+  font-family: 'JetBrains Mono', monospace; font-size: 10.5px; text-decoration: none;
+  padding: 2px 8px; border-radius: 4px; transition: all 0.2s;
   display: inline-flex; align-items: center; gap: 4px;
 }
 .pub-doi { border: 1px solid var(--glass-border); color: white; }
 .pub-doi:hover { background: var(--accent-blue); color: #000; border-color: var(--accent-blue); }
-.cite-badge { background: rgba(126, 184, 255, 0.1); border: 1px solid rgba(126, 184, 255, 0.3); color: var(--accent-blue); cursor: pointer; }
+.cite-badge { background: rgba(126, 184, 255, 0.1); border: 1px solid rgba(126, 184, 255, 0.3); color: var(--accent-blue); }
 .cite-badge:hover { background: rgba(126, 184, 255, 0.2); }
 
+/* Thesis Block */
+.thesis-box {
+  padding: 14px 18px; border-left: 3px solid var(--accent-gold);
+  background: rgba(232, 192, 96, 0.05); margin-top: 14px; border-radius: 0 6px 6px 0;
+}
+.thesis-tag { font-family: 'JetBrains Mono', monospace; font-size: 10px; text-transform: uppercase; color: var(--accent-gold); margin-bottom: 4px; }
+
 /* ─── Conferences ─── */
-.conf-year-block { margin-bottom: 24px; }
+.conf-year-block { margin-bottom: 18px; }
 .conf-year-head {
-  display: flex; align-items: center; gap: 12px; margin-bottom: 12px;
+  display: flex; align-items: center; gap: 10px; margin-bottom: 8px;
 }
 .conf-year-num {
-  font-family: 'Lora', serif; font-size: 22px; font-weight: 700;
+  font-family: 'Lora', serif; font-size: 20px; font-weight: 700;
   color: white; line-height: 1;
 }
 .conf-year-line { flex: 1; height: 1px; background: var(--glass-border); }
 .conf-item {
-  display: grid; grid-template-columns: 24px 1fr; gap: 12px; 
-  padding: 10px; border-radius: 6px; transition: background 0.2s;
+  display: grid; grid-template-columns: 26px 1fr; gap: 10px; 
+  padding: 8px 10px; border-radius: 5px; transition: background 0.15s;
   border-bottom: 1px solid rgba(255,255,255,0.03);
 }
 .conf-item:last-child { border-bottom: none; }
 .conf-item:hover { background: rgba(255, 255, 255, 0.03); }
 .conf-n { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-muted); opacity: 0.7; padding-top: 2px; }
-.conf-text { font-size: 14px; color: var(--text-main); line-height: 1.5; margin-bottom: 4px; }
-.conf-venue { font-size: 13px; color: var(--text-muted); }
-.conf-venue em { color: var(--accent-blue); font-style: normal; }
+.conf-text { font-size: 13.5px; color: var(--text-main); line-height: 1.48; margin-bottom: 3px; }
+.conf-text strong { color: var(--accent-blue); }
+.conf-venue { font-size: 12.5px; color: var(--text-muted); }
+.conf-venue em { color: var(--accent-gold); font-style: normal; }
 
 /* ─── Photos ─── */
-.photo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+.photo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
 .photo-card { position: relative; overflow: hidden; aspect-ratio: 16/10; border-radius: 8px; }
 .photo-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
-.photo-card:hover img { transform: scale(1.05); }
-.photo-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 12px; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); }
-.photo-cap-t { font-size: 14px; font-weight: 600; color: white; line-height: 1.2; }
-.photo-cap-s { font-size: 12px; color: var(--text-muted); }
+.photo-card:hover img { transform: scale(1.04); }
+.photo-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 12px; background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); }
+.photo-cap-t { font-size: 13.5px; font-weight: 600; color: white; }
+.photo-cap-s { font-size: 11.5px; color: var(--text-muted); }
 
-/* ─── Visitor & Footer ─── */
+/* ─── Visitor Counter ─── */
 .visitor-counter-wrap {
-  display: inline-flex; align-items: center; gap: 12px; padding: 16px 24px;
+  display: inline-flex; align-items: center; gap: 12px; padding: 12px 22px;
 }
-.visitor-count { font-family: 'Lora', serif; font-size: 2rem; font-weight: 700; color: white; line-height: 1; }
-.visitor-sub { font-size: 11px; color: var(--text-muted); margin-top: 2px; text-transform: uppercase; letter-spacing: 0.08em; }
+.visitor-count { font-family: 'Lora', serif; font-size: 1.8rem; font-weight: 700; color: white; line-height: 1; }
+.visitor-sub { font-size: 10.5px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; }
 
-footer { padding: 30px; text-align: center; border-top: 1px solid var(--glass-border); margin-top: 40px; }
-.footer-links a { color: var(--text-muted); text-decoration: none; margin: 0 10px; font-size: 13px; transition: color 0.2s; }
+footer { padding: 28px; text-align: center; border-top: 1px solid var(--glass-border); margin-top: 36px; }
+.footer-links a { color: var(--text-muted); text-decoration: none; margin: 0 8px; font-size: 12.5px; transition: color 0.2s; }
 .footer-links a:hover { color: var(--accent-blue); }
 
-/* ─── Animations ─── */
-.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+/* ─── Animations & Mobile ─── */
+.reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease; }
 .reveal.visible { opacity: 1; transform: none; }
 
-/* ─── Mobile ─── */
 .ham-btn {
-  display: none; position: fixed; top: 16px; right: 16px; z-index: 500;
-  width: 40px; height: 40px; border-radius: 8px;
+  display: none; position: fixed; top: 14px; right: 14px; z-index: 500;
+  width: 38px; height: 38px; border-radius: 6px;
   background: var(--glass-bg); border: 1px solid var(--glass-border);
-  backdrop-filter: blur(12px); cursor: pointer; color: white; font-size: 18px;
+  backdrop-filter: blur(10px); cursor: pointer; color: white; font-size: 18px;
 }
 @media (max-width: 900px) {
   .ham-btn { display: flex; align-items: center; justify-content: center; }
   .sidebar { transform: translateX(-100%); border-radius: 0; }
   .sidebar.visible { transform: translateX(0); }
   .main { margin-left: 0 !important; }
-  .content-inner { padding: 60px 20px 40px; }
-  .cv-row { grid-template-columns: 1fr; gap: 4px; }
+  .content-inner { padding: 54px 18px 36px; }
+  .cv-row { grid-template-columns: 1fr; gap: 3px; }
 }
 </style>
 </head>
@@ -268,14 +279,16 @@ footer { padding: 30px; text-align: center; border-top: 1px solid var(--glass-bo
 
 <aside class="sidebar glass-panel" id="sidebar">
   <div class="sidebar-inner">
+    <img src="images/profile_picture.jpg" alt="Praveen" class="sb-profile-img" onerror="this.style.display='none'">
     <div class="sb-name">Praveen Basuvaraj</div>
     <div class="sb-title">Post-Doctoral Researcher</div>
     <div class="sb-divider"></div>
     <nav class="sb-nav">
       <a href="#home" class="sb-link active">Home</a>
       <a href="#cv" class="sb-link">Curriculum Vitae</a>
-      <a href="#publications" class="sb-link">Publications</a>
-      <a href="#conferences" class="sb-link">Conferences</a>
+      <a href="#publications" class="sb-link">Journal Publications</a>
+      <a href="#proceedings" class="sb-link">Proceedings & Thesis</a>
+      <a href="#conferences" class="sb-link">Conferences & Talks</a>
       <a href="#photos" class="sb-link">Photos</a>
     </nav>
     <div class="sb-bottom">
@@ -290,6 +303,7 @@ footer { padding: 30px; text-align: center; border-top: 1px solid var(--glass-bo
 <main class="main" id="mainContent">
 <div class="content-inner">
 
+<!-- ── HOME ── -->
 <section class="section" id="home">
   <div class="hero-glass glass-panel reveal">
     <h1 class="hero-name">Praveen Kumar<br><em>Basuvaraj</em></h1>
@@ -297,28 +311,28 @@ footer { padding: 30px; text-align: center; border-top: 1px solid var(--glass-bo
     
     <div class="hero-affil">
       <strong>Department of Space Physics</strong><br>
-      Institute of Atmospheric Physics (IAP/UFA)<br>
-      The Czech Academy of Sciences (CAS/AV ČR)<br>
+      Institute of Atmospheric Physics (IAP/UFA), Czech Academy of Sciences (CAS)<br>
       Prague, Czechia
     </div>
     
-    <div>
-      <span class="chip">Martian & Jovian Ionospheres</span>
+    <div class="hero-chips">
+      <span class="chip">Martian &amp; Jovian Ionospheres</span>
       <span class="chip">MAVEN</span>
       <span class="chip">Mars Express</span>
-      <span class="chip">Juno</span>
+      <span class="chip">Juno Waves</span>
     </div>
   </div>
 </section>
 
+<!-- ── CV ── -->
 <section class="section reveal" id="cv">
   <div class="sec-top">
     <div class="sec-kicker">01</div>
     <h2>Curriculum <em>Vitae</em></h2>
   </div>
 
-  <div class="glass-panel" style="padding: 16px 20px;">
-    <h3 class="grp" style="margin-top: 0;">Employment History</h3>
+  <div class="glass-panel" style="padding: 14px 18px;">
+    <h3 class="grp">Employment History</h3>
     <div class="cv-row"><div class="cv-date">07/2025 – present</div><div><div class="cv-role">Post-Doctoral Researcher</div><div class="cv-org">Institute of Atmospheric Physics CAS, Prague, Czechia</div></div></div>
     <div class="cv-row"><div class="cv-date">04/2025 – 06/2025</div><div><div class="cv-role">Researcher</div><div class="cv-org">Institute of Atmospheric Physics CAS, Prague, Czechia</div></div></div>
     <div class="cv-row"><div class="cv-date">11/2021 – 06/2025</div><div><div class="cv-role">Doctoral Researcher</div><div class="cv-org">Charles University, Prague, Czechia</div></div></div>
@@ -327,96 +341,207 @@ footer { padding: 30px; text-align: center; border-top: 1px solid var(--glass-bo
     <h3 class="grp">Education</h3>
     <div class="cv-row"><div class="cv-date">10/2021 – 06/2025</div><div><div class="cv-role">Ph.D. in Plasma Physics</div><div class="cv-org">Charles University, Prague, Czechia · Supervisor: Prof. František Němec</div></div></div>
     <div class="cv-row"><div class="cv-date">09/2014 – 07/2016</div><div><div class="cv-role">M.Sc. in Physics</div><div class="cv-org">Bangalore University, Bengaluru, India</div></div></div>
-    <div class="cv-row"><div class="cv-date">07/2011 – 06/2014</div><div><div class="cv-role">B.Sc. (Physics, Math, Computer Science)</div><div class="cv-org">Bangalore University, Bengaluru, India</div></div></div>
+    <div class="cv-row"><div class="cv-date">07/2011 – 06/2014</div><div><div class="cv-role">B.Sc. (Physics, Mathematics, Computer Science)</div><div class="cv-org">Bangalore University, Bengaluru, India</div></div></div>
 
     <h3 class="grp">Stays Abroad</h3>
-    <div class="cv-row"><div class="cv-date">11/2026 – 12/2026</div><div><div class="cv-role">National Taiwan Normal University (NTNU)</div><div class="cv-org">Taipei, Taiwan</div></div></div>
-    <div class="cv-row"><div class="cv-date">09/2026 – 11/2026</div><div><div class="cv-role">Johns Hopkins University Applied Physics Laboratory</div><div class="cv-org">Laurel, Maryland, USA</div></div></div>
-    <div class="cv-row"><div class="cv-date">09/2024</div><div><div class="cv-role">Johns Hopkins University Applied Physics Laboratory</div><div class="cv-org">Laurel, Maryland, USA</div></div></div>
+    <div class="cv-row"><div class="cv-date">11/2026 – 12/2026</div><div><div class="cv-role">Research Visit (2 weeks)</div><div class="cv-org">National Taiwan Normal University (NTNU), Taipei, Taiwan</div></div></div>
+    <div class="cv-row"><div class="cv-date">09/2026 – 11/2026</div><div><div class="cv-role">Research Visit (5 weeks)</div><div class="cv-org">Johns Hopkins University Applied Physics Laboratory, Laurel, Maryland, USA</div></div></div>
+    <div class="cv-row"><div class="cv-date">09/2024</div><div><div class="cv-role">Research Visit (4 weeks)</div><div class="cv-org">Johns Hopkins University Applied Physics Laboratory, Laurel, Maryland, USA</div></div></div>
 
     <h3 class="grp">Grant Projects</h3>
-    <div class="cv-row"><div class="cv-date">01/2026 – 12/2027</div><div><div class="cv-role">Studying Ionospheric Irregularities on Mars (PI)</div><div class="cv-org">Mobility Plus Project NSTC-26-06 · CAS/Taiwan</div></div></div>
-    <div class="cv-row"><div class="cv-date">01/2026 – 12/2026</div><div><div class="cv-role">Academy of the Future Grant (Recipient)</div><div class="cv-org">Institute of Atmospheric Physics CAS</div></div></div>
-    <div class="cv-row"><div class="cv-date">04/2025 – 12/2029</div><div><div class="cv-role">Radio Emissions from Jupiter (Team Member)</div><div class="cv-org">Lumina Quaeruntur LQ100422501 · CAS</div></div></div>
-    <div class="cv-row"><div class="cv-date">01/2023 – 12/2025</div><div><div class="cv-role">Understanding Martian Ionospheric Depletions (PI)</div><div class="cv-org">GAUK 256323 · Charles University</div></div></div>
+    <div class="cv-row"><div class="cv-date">01/2026 – 12/2027</div><div><div class="cv-role">Studying Ionospheric Irregularities on Mars Using Numerical Simulations</div><div class="cv-org">Principal Investigator · Mobility Plus Project NSTC-26-06 · CAS / NSTC (Taiwan)</div></div></div>
+    <div class="cv-row"><div class="cv-date">01/2026 – 12/2026</div><div><div class="cv-role">Academy of the Future Grant (Sub-Program A)</div><div class="cv-org">Recipient · Institute of Atmospheric Physics, Czech Academy of Sciences</div></div></div>
+    <div class="cv-row"><div class="cv-date">04/2025 – 12/2029</div><div><div class="cv-role">Radio Emissions from Jupiter</div><div class="cv-org">Team Member · Lumina Quaeruntur LQ100422501 · Czech Academy of Sciences</div></div></div>
+    <div class="cv-row"><div class="cv-date">01/2023 – 12/2025</div><div><div class="cv-role">Understanding Martian Ionospheric Depletions using MAVEN and Mars Express Spacecraft Observations</div><div class="cv-org">Principal Investigator · GAUK 256323 · Grant Agency of Charles University, Prague</div></div></div>
+    <div class="cv-row"><div class="cv-date">04/2017 – 03/2021</div><div><div class="cv-role">Observation and Modeling Studies of the Atmospheric Composition of Mars</div><div class="cv-org">Research Fellow · SPL:01.01.33/16 · Indian Space Research Organisation (ISRO), Bengaluru, India</div></div></div>
   </div>
 </section>
 
+<!-- ── JOURNAL PUBLICATIONS ── -->
 <section class="section reveal" id="publications">
   <div class="sec-top">
     <div class="sec-kicker">02</div>
-    <h2>Peer-Reviewed <em>Publications</em></h2>
+    <h2>Journal <em>Publications</em></h2>
   </div>
   
-  <div class="glass-panel" style="padding: 12px 16px;">
+  <div class="glass-panel" style="padding: 10px 14px;">
+    <!-- [6] -->
     <div class="pub-item">
-      <div class="pub-title">Spatial and Temporal Extent of Plasma Depletion Events in the Ionosphere of Mars</div>
-      <div class="pub-authors"><strong>P. Basuvaraj</strong>, F. Němec, C. M. Fowler, L. H. Regoli, Z. Němeček, J. Šafránková, O. Witasse, and C. F. Wilson</div>
-      <div class="pub-meta">
-        <span class="pub-journal">Journal of Geophysical Research: Planets, 130, 2025</span>
-        <a href="https://doi.org/10.1029/2025JE008934" class="pub-doi" target="_blank">DOI ↗</a>
-        <a href="https://scholar.google.co.in/citations?user=ZY4HKMoAAAAJ&hl=en" class="cite-badge" data-doi="10.1029/2025JE008934" target="_blank">📊 Loading...</a>
+      <div class="pub-n">[6]</div>
+      <div>
+        <div class="pub-title">Spatial and Temporal Extent of Plasma Depletion Events in the Ionosphere of Mars</div>
+        <div class="pub-authors"><strong>P. Basuvaraj</strong>, F. Němec, C. M. Fowler, L. H. Regoli, Z. Němeček, J. Šafránková, O. Witasse, and C. F. Wilson</div>
+        <div class="pub-meta">
+          <span class="pub-journal">Journal of Geophysical Research: Planets, 130(10), e2025JE008934 · 2025</span>
+          <a href="https://doi.org/10.1029/2025JE008934" class="pub-doi" target="_blank">DOI ↗</a>
+          <a href="https://scholar.google.co.in/citations?user=ZY4HKMoAAAAJ&hl=en" class="cite-badge" data-doi="10.1029/2025JE008934" target="_blank">📊 Loading...</a>
+        </div>
       </div>
     </div>
 
+    <!-- [5] -->
     <div class="pub-item">
-      <div class="pub-title">On the Formation Mechanism of Martian Dayside Ionospheric Plasma Depletion Events</div>
-      <div class="pub-authors"><strong>P. Basuvaraj</strong>, F. Němec, C. M. Fowler, L. H. Regoli, Z. Němeček, and J. Šafránková</div>
-      <div class="pub-meta">
-        <span class="pub-journal">Journal of Geophysical Research: Planets, 129, 2024</span>
-        <a href="https://doi.org/10.1029/2023JE008227" class="pub-doi" target="_blank">DOI ↗</a>
-        <a href="https://scholar.google.co.in/citations?user=ZY4HKMoAAAAJ&hl=en" class="cite-badge" data-doi="10.1029/2023JE008227" target="_blank">📊 Loading...</a>
+      <div class="pub-n">[5]</div>
+      <div>
+        <div class="pub-title">On the Formation Mechanism of Martian Dayside Ionospheric Plasma Depletion Events</div>
+        <div class="pub-authors"><strong>P. Basuvaraj</strong>, F. Němec, C. M. Fowler, L. H. Regoli, Z. Němeček, and J. Šafránková</div>
+        <div class="pub-meta">
+          <span class="pub-journal">Journal of Geophysical Research: Planets, 129(6), e2023JE008227 · 2024</span>
+          <a href="https://doi.org/10.1029/2023JE008227" class="pub-doi" target="_blank">DOI ↗</a>
+          <a href="https://scholar.google.co.in/citations?user=ZY4HKMoAAAAJ&hl=en" class="cite-badge" data-doi="10.1029/2023JE008227" target="_blank">📊 Loading...</a>
+        </div>
       </div>
     </div>
 
+    <!-- [4] -->
     <div class="pub-item">
-      <div class="pub-title">Ionospheric Plasma Depletions at Mars Observed by the MAVEN Spacecraft</div>
-      <div class="pub-authors"><strong>P. Basuvaraj</strong>, F. Němec, Z. Němeček, and J. Šafránková</div>
-      <div class="pub-meta">
-        <span class="pub-journal">Journal of Geophysical Research: Planets, 127, 2022</span>
-        <a href="https://doi.org/10.1029/2022JE007302" class="pub-doi" target="_blank">DOI ↗</a>
-        <a href="https://scholar.google.co.in/citations?user=ZY4HKMoAAAAJ&hl=en" class="cite-badge" data-doi="10.1029/2022JE007302" target="_blank">📊 Loading...</a>
+      <div class="pub-n">[4]</div>
+      <div>
+        <div class="pub-title">Ionospheric Plasma Depletions at Mars Observed by the MAVEN Spacecraft</div>
+        <div class="pub-authors"><strong>P. Basuvaraj</strong>, F. Němec, Z. Němeček, and J. Šafránková</div>
+        <div class="pub-meta">
+          <span class="pub-journal">Journal of Geophysical Research: Planets, 127(11), e2022JE007302 · 2022</span>
+          <a href="https://doi.org/10.1029/2022JE007302" class="pub-doi" target="_blank">DOI ↗</a>
+          <a href="https://scholar.google.co.in/citations?user=ZY4HKMoAAAAJ&hl=en" class="cite-badge" data-doi="10.1029/2022JE007302" target="_blank">📊 Loading...</a>
+        </div>
       </div>
     </div>
 
+    <!-- [3] -->
     <div class="pub-item">
-      <div class="pub-title">Study of Exospheric Neutral Composition of Mars Observed from Indian Mars Orbiter Mission</div>
-      <div class="pub-authors">K. Nagaraja, <strong>P. K. Basuvaraj</strong>, S. C. Chakravarty, and K. Praveen Kumar</div>
-      <div class="pub-meta">
-        <span class="pub-journal">New Astronomy, 77, 2020</span>
-        <a href="https://doi.org/10.1016/j.newast.2019.101349" class="pub-doi" target="_blank">DOI ↗</a>
-        <a href="https://scholar.google.co.in/citations?user=ZY4HKMoAAAAJ&hl=en" class="cite-badge" data-doi="10.1016/j.newast.2019.101349" target="_blank">📊 Loading...</a>
+      <div class="pub-n">[3]</div>
+      <div>
+        <div class="pub-title">Study of Exospheric Neutral Composition of Mars Observed from Indian Mars Orbiter Mission</div>
+        <div class="pub-authors">K. Nagaraja, <strong>P. K. Basuvaraj</strong>, S. C. Chakravarty, and K. Praveen Kumar</div>
+        <div class="pub-meta">
+          <span class="pub-journal">New Astronomy, 77, 101349 · 2020</span>
+          <a href="https://doi.org/10.1016/j.newast.2019.101349" class="pub-doi" target="_blank">DOI ↗</a>
+          <a href="https://scholar.google.co.in/citations?user=ZY4HKMoAAAAJ&hl=en" class="cite-badge" data-doi="10.1016/j.newast.2019.101349" target="_blank">📊 Loading...</a>
+        </div>
       </div>
     </div>
 
+    <!-- [2] -->
     <div class="pub-item">
-      <div class="pub-title">Investigation of HZE Particle Fluxes as a Space Radiation Hazard for Future Mars Missions</div>
-      <div class="pub-authors">K. Nagaraja, S. C. Chakravarty, and <strong>P. K. Basuvaraj</strong></div>
-      <div class="pub-meta">
-        <span class="pub-journal">Heliyon, 5, 2019</span>
-        <a href="https://doi.org/10.1016/j.heliyon.2019.e02972" class="pub-doi" target="_blank">DOI ↗</a>
-        <a href="https://scholar.google.co.in/citations?user=ZY4HKMoAAAAJ&hl=en" class="cite-badge" data-doi="10.1016/j.heliyon.2019.e02972" target="_blank">📊 Loading...</a>
+      <div class="pub-n">[2]</div>
+      <div>
+        <div class="pub-title">Investigation of HZE Particle Fluxes as a Space Radiation Hazard for Future Mars Missions</div>
+        <div class="pub-authors">K. Nagaraja, S. C. Chakravarty, and <strong>P. K. Basuvaraj</strong></div>
+        <div class="pub-meta">
+          <span class="pub-journal">Heliyon, 5(12), e02972 · 2019</span>
+          <a href="https://doi.org/10.1016/j.heliyon.2019.e02972" class="pub-doi" target="_blank">DOI ↗</a>
+          <a href="https://scholar.google.co.in/citations?user=ZY4HKMoAAAAJ&hl=en" class="cite-badge" data-doi="10.1016/j.heliyon.2019.e02972" target="_blank">📊 Loading...</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- [1] -->
+    <div class="pub-item">
+      <div class="pub-n">[1]</div>
+      <div>
+        <div class="pub-title">X-ray Flares and Coronal Mass Ejections (CMEs) during Very Quiet Solar Activity Conditions of 2009</div>
+        <div class="pub-authors">K. Nagaraja, <strong>P. K. Basuvaraj</strong>, and S. C. Chakravarty</div>
+        <div class="pub-meta">
+          <span class="pub-journal">Indian Journal of Pure and Applied Physics, 56, 621–623 · 2018</span>
+          <a href="http://nopr.niscpr.res.in/handle/123456789/44854" class="pub-doi" target="_blank">Link ↗</a>
+          <a href="https://scholar.google.co.in/citations?user=ZY4HKMoAAAAJ&hl=en" class="cite-badge" target="_blank">📊 Scholar</a>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section reveal" id="conferences">
+<!-- ── PROCEEDINGS & THESIS ── -->
+<section class="section reveal" id="proceedings">
   <div class="sec-top">
     <div class="sec-kicker">03</div>
-    <h2>Conferences, Workshops <em>&amp; Talks</em></h2>
+    <h2>Proceedings &amp; <em>Thesis</em></h2>
   </div>
 
-  <div class="glass-panel" style="padding: 16px 20px;">
+  <div class="glass-panel" style="padding: 10px 14px;">
+    <h3 class="grp">Conference Proceedings</h3>
+    
+    <div class="pub-item">
+      <div class="pub-n">[4]</div>
+      <div>
+        <div class="pub-title">Plasma Depletion Events in the Martian Ionosphere: Insights From Conjugate MAVEN and Mars Express Observations</div>
+        <div class="pub-authors"><strong>P. Basuvaraj</strong>, F. Němec, C. M. Fowler, L. Regoli, Z. Němeček, and J. Šafránková</div>
+        <div class="pub-meta">
+          <span class="pub-journal">WDS'24 Proceedings of Contributed Papers - Physics, Matfyzpress, pp. 58–63, ISBN: 978-80-7378-520-8 · 2024</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-n">[3]</div>
+      <div>
+        <div class="pub-title">Multi-spacecraft Investigation of ICME-driven Interplanetary Solar Wind Turbulence in the Inner Heliosphere</div>
+        <div class="pub-authors">B. Park, A. Pitňa, J. Šafránková, Z. Němeček, and <strong>P. Basuvaraj</strong></div>
+        <div class="pub-meta">
+          <span class="pub-journal">WDS'23 Proceedings of Contributed Papers - Physics, Matfyzpress, pp. 28–34, ISBN: 978-80-7378-503-1 · 2023</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-n">[2]</div>
+      <div>
+        <div class="pub-title">Electric and Magnetic Field Variations Associated with Martian Plasma Depletion Events</div>
+        <div class="pub-authors"><strong>P. Basuvaraj</strong>, F. Němec, L. Regoli, C. M. Fowler, Z. Němeček, and J. Šafránková</div>
+        <div class="pub-meta">
+          <span class="pub-journal">WDS'23 Proceedings of Contributed Papers - Physics, Matfyzpress, pp. 43–49, ISBN: 978-80-7378-503-1 · 2023</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-n">[1]</div>
+      <div>
+        <div class="pub-title">Observing the Martian Ionospheric Plasma Depletion Events by the MAVEN and Mars Express Spacecraft</div>
+        <div class="pub-authors"><strong>P. Basuvaraj</strong>, F. Němec, Z. Němeček, and J. Šafránková</div>
+        <div class="pub-meta">
+          <span class="pub-journal">WDS'22 Proceedings of Contributed Papers - Physics, Matfyzpress, pp. 38–47, ISBN: 978-80-7378-477-5 · 2022</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Thesis -->
+    <div class="thesis-box">
+      <div class="thesis-tag">Doctoral Thesis · 2025</div>
+      <div class="pub-title">Plasma Depletion Events in the Martian Ionosphere</div>
+      <div class="pub-authors"><strong>Praveen Basuvaraj</strong> · Supervisor: Prof. František Němec</div>
+      <div class="pub-meta" style="margin-top: 4px;">
+        <span class="pub-journal">Charles University, Faculty of Mathematics and Physics, Prague</span>
+        <a href="https://dspace.cuni.cz/handle/20.500.11956/200710" class="pub-doi" target="_blank">Full Text ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONFERENCES & TALKS ── -->
+<section class="section reveal" id="conferences">
+  <div class="sec-top">
+    <div class="sec-kicker">04</div>
+    <h2>Conferences, Seminars <em>&amp; Talks</em></h2>
+  </div>
+
+  <div class="glass-panel" style="padding: 14px 18px;">
     
     <!-- 2026 -->
     <div class="conf-year-block">
       <div class="conf-year-head"><span class="conf-year-num">2026</span><div class="conf-year-line"></div></div>
       <div class="conf-item">
-        <div class="conf-n">37</div>
+        <div class="conf-n">38</div>
         <div>
           <p class="conf-text"><strong>P. Basuvaraj</strong>, W.-L. Tseng, D. Pisa, and I. Lai. Plasma Depletion Events in the Martian Ionosphere: A Combined MAVEN Observational and Modeling Study.</p>
           <p class="conf-venue"><em>AGU Fall Meeting</em> · San Francisco, CA, USA · Dec 7–11, 2026</p>
+        </div>
+      </div>
+      <div class="conf-item">
+        <div class="conf-n">37</div>
+        <div>
+          <p class="conf-text"><strong>Praveen Kumar Basuvaraj</strong>. High-Frequency Lightning Detection in the Jupiter Atmosphere.</p>
+          <p class="conf-venue"><em>Space Physics Seminar, Institute of Atmospheric Physics CAS</em> · Prague, Czechia · Nov 19, 2026</p>
         </div>
       </div>
     </div>
@@ -723,7 +848,7 @@ footer { padding: 30px; text-align: center; border-top: 1px solid var(--glass-bo
 <!-- ── PHOTOS ── -->
 <section class="section reveal" id="photos">
   <div class="sec-top">
-    <div class="sec-kicker">04</div>
+    <div class="sec-kicker">05</div>
     <h2>In the <em>Field</em></h2>
   </div>
   <div class="photo-grid">
@@ -745,9 +870,9 @@ footer { padding: 30px; text-align: center; border-top: 1px solid var(--glass-bo
 </section>
 
 <!-- ── VISITOR COUNTER ── -->
-<div class="glass-panel visitor-section reveal" style="text-align: center; margin: 30px 0;">
+<div class="glass-panel visitor-section reveal" style="text-align: center; margin: 24px 0;">
   <div class="visitor-counter-wrap">
-    <span style="font-size: 26px;">👁️</span>
+    <span style="font-size: 24px;">👁️</span>
     <div style="text-align: left;">
       <div class="visitor-count" id="visitCount">...</div>
       <div class="visitor-sub">Total Visitors</div>
@@ -763,31 +888,36 @@ footer { padding: 30px; text-align: center; border-top: 1px solid var(--glass-bo
     <a href="https://orcid.org/0000-0002-1779-0331" target="_blank">ORCID</a>
     <a href="https://scholar.google.co.in/citations?user=ZY4HKMoAAAAJ&hl=en" target="_blank">Google Scholar</a>
     <a href="https://www.scopus.com/authid/detail.uri?authorId=57212026711" target="_blank">Scopus</a>
+    <a href="https://github.com/pkbasuvaraj" target="_blank">GitHub</a>
   </div>
 </footer>
 
 <script>
-/* ── Dynamic Date Updater ── */
+/* ── Dynamic Last Updated Date ── */
 document.addEventListener("DOMContentLoaded", () => {
-  const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
-  document.getElementById('live-date').textContent = new Date().toLocaleDateString('en-US', dateOptions);
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  document.getElementById('live-date').textContent = new Date().toLocaleDateString('en-US', options);
 });
 
-/* ── Live Citation Fetching (OpenAlex / Semantic Scholar Fallback) ── */
+/* ── Live Citation Fetching (OpenAlex & Semantic Scholar) ── */
 async function fetchCitationCount(doi) {
   try {
     const res = await fetch(`https://api.openalex.org/works/https://doi.org/${doi}`);
-    const data = await res.json();
-    return data.cited_by_count;
-  } catch (e) {
-    try {
-      const res2 = await fetch(`https://api.semanticscholar.org/graph/v1/paper/DOI:${doi}?fields=citationCount`);
-      const data2 = await res2.json();
-      return data2.citationCount;
-    } catch (e2) {
-      return null;
+    if (res.ok) {
+      const data = await res.json();
+      if (typeof data.cited_by_count === 'number') return data.cited_by_count;
     }
-  }
+  } catch (e) {}
+
+  try {
+    const res2 = await fetch(`https://api.semanticscholar.org/graph/v1/paper/DOI:${doi}?fields=citationCount`);
+    if (res2.ok) {
+      const data2 = await res2.json();
+      if (typeof data2.citationCount === 'number') return data2.citationCount;
+    }
+  } catch (e) {}
+
+  return null;
 }
 
 document.querySelectorAll('.cite-badge').forEach(async (badge) => {
@@ -802,20 +932,27 @@ document.querySelectorAll('.cite-badge').forEach(async (badge) => {
   }
 });
 
-/* ── Visitor Counter ── */
+/* ── Accurate Visitor Counter (No hardcoded fallback) ── */
 (async function() {
   const visitEl = document.getElementById('visitCount');
   try {
     const res = await fetch('https://hits.sh/pkbasuvaraj.github.io.json?nocache=' + Date.now());
-    const data = await res.json();
-    visitEl.textContent = data.count ? Number(data.count).toLocaleString() : '1,204';
-  } catch {
-    visitEl.textContent = '1,204';
+    if (res.ok) {
+      const data = await res.json();
+      if (data && data.count) {
+        visitEl.textContent = Number(data.count).toLocaleString();
+        return;
+      }
+    }
+    throw new Error('hits.sh unavailable');
+  } catch (e) {
+    // If external counter service is blocked by client adblocker/network:
+    visitEl.textContent = 'Active';
   }
   new Image().src = 'https://hits.sh/pkbasuvaraj.github.io.svg';
 })();
 
-/* ── UI Interactions ── */
+/* ── Navigation & Reveal Observer ── */
 const hamBtn = document.getElementById('hamBtn');
 const sidebar = document.getElementById('sidebar');
 hamBtn.addEventListener('click', () => sidebar.classList.toggle('visible'));
@@ -832,14 +969,14 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 document.querySelectorAll('.reveal, .section').forEach(el => observer.observe(el));
 
-/* ── Space Canvas Background ── */
+/* ── Space Background Canvas ── */
 const canvas = document.getElementById('bg-canvas');
 const ctx = canvas.getContext('2d');
 let stars = [];
 function resize() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
-  stars = Array.from({ length: 150 }, () => ({
+  stars = Array.from({ length: 140 }, () => ({
     x: Math.random() * canvas.width,
     y: Math.random() * canvas.height,
     z: Math.random() * 1.5 + 0.5
@@ -849,11 +986,11 @@ function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.fillStyle = '#ffffff';
   stars.forEach(s => {
-    ctx.globalAlpha = 0.2 + (s.z * 0.2);
+    ctx.globalAlpha = 0.18 + (s.z * 0.18);
     ctx.beginPath();
     ctx.arc(s.x, s.y, s.z, 0, Math.PI * 2);
     ctx.fill();
-    s.y -= s.z * 0.15;
+    s.y -= s.z * 0.12;
     if (s.y < 0) s.y = canvas.height;
   });
   requestAnimationFrame(draw);
